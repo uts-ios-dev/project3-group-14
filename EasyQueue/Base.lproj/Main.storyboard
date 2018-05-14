@@ -90,6 +90,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="cc5-Ev-H2H" kind="show" id="OpS-5o-544"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="I4K-Fz-lGz" style="IBUITableViewCellStyleDefault" id="m7m-ll-vH1">
                                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -138,6 +141,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMt-ha-M3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1964" y="134"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bF3-8s-Cod">
+            <objects>
+                <viewController id="cc5-Ev-H2H" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MUA-Ry-eCH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="EuH-Mc-tF3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gUG-jL-JWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2854" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uGm-ld-F4j">
