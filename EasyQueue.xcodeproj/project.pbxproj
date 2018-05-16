@@ -14,6 +14,14 @@
 		E1AB4C7520A44F1F00E7BAFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1AB4C7320A44F1F00E7BAFF /* LaunchScreen.storyboard */; };
 		E1AB4C8020A44F1F00E7BAFF /* EasyQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB4C7F20A44F1F00E7BAFF /* EasyQueueTests.swift */; };
 		E1AB4C8B20A44F1F00E7BAFF /* EasyQueueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB4C8A20A44F1F00E7BAFF /* EasyQueueUITests.swift */; };
+		E1E18B6920AC664E00D2B4CB /* EasyQueueDB.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = E1E18B6820AC664E00D2B4CB /* EasyQueueDB.sqlite3 */; };
+		E1E18B6B20AC66BF00D2B4CB /* RestaurantListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E18B6A20AC66BF00D2B4CB /* RestaurantListTableViewController.swift */; };
+		E1E18B6E20AC689600D2B4CB /* EasyQueueDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E18B6D20AC689600D2B4CB /* EasyQueueDB.swift */; };
+		E1E18B9C20AC785E00D2B4CB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E18B9B20AC785E00D2B4CB /* libsqlite3.tbd */; };
+		E1E18BA420AC793D00D2B4CB /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E18B9F20AC793C00D2B4CB /* SQLiteDB.swift */; };
+		E1E18BA520AC793D00D2B4CB /* SQLiteBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E18BA020AC793C00D2B4CB /* SQLiteBase.swift */; };
+		E1E18BA620AC793D00D2B4CB /* SQLTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E18BA120AC793C00D2B4CB /* SQLTable.swift */; };
+		E1E18BA720AC793D00D2B4CB /* CloudDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E18BA320AC793D00D2B4CB /* CloudDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +55,15 @@
 		E1AB4C8620A44F1F00E7BAFF /* EasyQueueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyQueueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AB4C8A20A44F1F00E7BAFF /* EasyQueueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyQueueUITests.swift; sourceTree = "<group>"; };
 		E1AB4C8C20A44F1F00E7BAFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1E18B6820AC664E00D2B4CB /* EasyQueueDB.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = EasyQueueDB.sqlite3; sourceTree = "<group>"; };
+		E1E18B6A20AC66BF00D2B4CB /* RestaurantListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListTableViewController.swift; sourceTree = "<group>"; };
+		E1E18B6D20AC689600D2B4CB /* EasyQueueDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyQueueDB.swift; sourceTree = "<group>"; };
+		E1E18B9B20AC785E00D2B4CB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		E1E18B9F20AC793C00D2B4CB /* SQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
+		E1E18BA020AC793C00D2B4CB /* SQLiteBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteBase.swift; sourceTree = "<group>"; };
+		E1E18BA120AC793C00D2B4CB /* SQLTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLTable.swift; sourceTree = "<group>"; };
+		E1E18BA220AC793C00D2B4CB /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		E1E18BA320AC793D00D2B4CB /* CloudDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1E18B9C20AC785E00D2B4CB /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +99,7 @@
 				E1AB4C7E20A44F1F00E7BAFF /* EasyQueueTests */,
 				E1AB4C8920A44F1F00E7BAFF /* EasyQueueUITests */,
 				E1AB4C6820A44F1F00E7BAFF /* Products */,
+				E1E18B9A20AC785E00D2B4CB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,8 +116,11 @@
 		E1AB4C6920A44F1F00E7BAFF /* EasyQueue */ = {
 			isa = PBXGroup;
 			children = (
+				E1E18B6720AC65EA00D2B4CB /* Controllers */,
+				E1E18B6C20AC683E00D2B4CB /* Modals */,
+				E1E18B9D20AC78FB00D2B4CB /* Libraries */,
+				E1E18B6620AC65D900D2B4CB /* Resources */,
 				E1AB4C6A20A44F1F00E7BAFF /* AppDelegate.swift */,
-				E1AB4C6C20A44F1F00E7BAFF /* ViewController.swift */,
 				E1AB4C6E20A44F1F00E7BAFF /* Main.storyboard */,
 				E1AB4C7120A44F1F00E7BAFF /* Assets.xcassets */,
 				E1AB4C7320A44F1F00E7BAFF /* LaunchScreen.storyboard */,
@@ -123,6 +145,59 @@
 				E1AB4C8C20A44F1F00E7BAFF /* Info.plist */,
 			);
 			path = EasyQueueUITests;
+			sourceTree = "<group>";
+		};
+		E1E18B6620AC65D900D2B4CB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E1E18B6820AC664E00D2B4CB /* EasyQueueDB.sqlite3 */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E1E18B6720AC65EA00D2B4CB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E1AB4C6C20A44F1F00E7BAFF /* ViewController.swift */,
+				E1E18B6A20AC66BF00D2B4CB /* RestaurantListTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E1E18B6C20AC683E00D2B4CB /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				E1E18B6D20AC689600D2B4CB /* EasyQueueDB.swift */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
+		E1E18B9A20AC785E00D2B4CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1E18B9B20AC785E00D2B4CB /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1E18B9D20AC78FB00D2B4CB /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				E1E18B9E20AC790C00D2B4CB /* SQLiteDB */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		E1E18B9E20AC790C00D2B4CB /* SQLiteDB */ = {
+			isa = PBXGroup;
+			children = (
+				E1E18BA220AC793C00D2B4CB /* Bridging-Header.h */,
+				E1E18BA320AC793D00D2B4CB /* CloudDB.swift */,
+				E1E18BA020AC793C00D2B4CB /* SQLiteBase.swift */,
+				E1E18B9F20AC793C00D2B4CB /* SQLiteDB.swift */,
+				E1E18BA120AC793C00D2B4CB /* SQLTable.swift */,
+			);
+			path = SQLiteDB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +310,7 @@
 				E1AB4C7520A44F1F00E7BAFF /* LaunchScreen.storyboard in Resources */,
 				E1AB4C7220A44F1F00E7BAFF /* Assets.xcassets in Resources */,
 				E1AB4C7020A44F1F00E7BAFF /* Main.storyboard in Resources */,
+				E1E18B6920AC664E00D2B4CB /* EasyQueueDB.sqlite3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +336,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1AB4C6D20A44F1F00E7BAFF /* ViewController.swift in Sources */,
+				E1E18BA620AC793D00D2B4CB /* SQLTable.swift in Sources */,
+				E1E18B6E20AC689600D2B4CB /* EasyQueueDB.swift in Sources */,
+				E1E18BA420AC793D00D2B4CB /* SQLiteDB.swift in Sources */,
 				E1AB4C6B20A44F1F00E7BAFF /* AppDelegate.swift in Sources */,
+				E1E18BA720AC793D00D2B4CB /* CloudDB.swift in Sources */,
+				E1E18BA520AC793D00D2B4CB /* SQLiteBase.swift in Sources */,
+				E1E18B6B20AC66BF00D2B4CB /* RestaurantListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
