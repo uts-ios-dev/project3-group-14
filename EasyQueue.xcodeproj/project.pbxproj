@@ -22,6 +22,7 @@
 		E1E18BA520AC793D00D2B4CB /* SQLiteBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E18BA020AC793C00D2B4CB /* SQLiteBase.swift */; };
 		E1E18BA620AC793D00D2B4CB /* SQLTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E18BA120AC793C00D2B4CB /* SQLTable.swift */; };
 		E1E18BA720AC793D00D2B4CB /* CloudDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E18BA320AC793D00D2B4CB /* CloudDB.swift */; };
+		E1E18BA920AC8F4900D2B4CB /* EasyQueueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E18BA820AC8F4900D2B4CB /* EasyQueueData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		E1E18BA120AC793C00D2B4CB /* SQLTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLTable.swift; sourceTree = "<group>"; };
 		E1E18BA220AC793C00D2B4CB /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		E1E18BA320AC793D00D2B4CB /* CloudDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudDB.swift; sourceTree = "<group>"; };
+		E1E18BA820AC8F4900D2B4CB /* EasyQueueData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyQueueData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 		E1E18B6C20AC683E00D2B4CB /* Modals */ = {
 			isa = PBXGroup;
 			children = (
+				E1E18BA820AC8F4900D2B4CB /* EasyQueueData.swift */,
 				E1E18B6D20AC689600D2B4CB /* EasyQueueDB.swift */,
 			);
 			path = Modals;
@@ -342,6 +345,7 @@
 				E1AB4C6B20A44F1F00E7BAFF /* AppDelegate.swift in Sources */,
 				E1E18BA720AC793D00D2B4CB /* CloudDB.swift in Sources */,
 				E1E18BA520AC793D00D2B4CB /* SQLiteBase.swift in Sources */,
+				E1E18BA920AC8F4900D2B4CB /* EasyQueueData.swift in Sources */,
 				E1E18B6B20AC66BF00D2B4CB /* RestaurantListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
