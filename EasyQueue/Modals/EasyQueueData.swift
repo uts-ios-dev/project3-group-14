@@ -6,18 +6,18 @@
 //  Copyright © 2018 Nicholas. All rights reserved.
 //
 
-// put your constant here
+// put constants here
 let AppName = "EasyQueue"
 
 
-// put your enum here
+// put enums here
 //enum Example {
 //    case one
 //    case two
 //}
 
 
-// put your struct here
+// put structs here
 //struct AnotherExample {
 //    var huh: String
 //    var well: String
