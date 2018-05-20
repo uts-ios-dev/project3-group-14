@@ -11,7 +11,7 @@ import UIKit
 class RestaurantListTableViewController: UITableViewController {
     
     let testDB = EasyQueueDB()
-    var data: [[String : Any]] = [["meh":"1"]]
+    var data: [[String : Any]] = [[:]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,12 +42,19 @@ class RestaurantListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantListCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantListCell", for: indexPath) as! RestaurantListTableViewCell
 
         // Configure the cell...
-        cell.textLabel!.text = (data[indexPath.row]["name"] as! String)
+        cell.RestaurantImageView.image = UIImage(named: data[indexPath.row]["image"] as! String)
+        //cell.RestaurantImageView.contentMode = UIViewContentMode.scaleAspectFit
+        cell.RestaurantNameLabel.text = (data[indexPath.row]["name"] as! String)
+        cell.RestaurantNameLabel.sizeToFit()
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 65.0
     }
 
     /*
