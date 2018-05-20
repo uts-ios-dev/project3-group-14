@@ -21,6 +21,7 @@ class RestaurantListTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
         data = db.getRestaurant()
     }
 
@@ -55,11 +56,6 @@ class RestaurantListTableViewController: UITableViewController {
         cell.RestaurantNameLabel.sizeToFit()
 
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        //print(currentCell.textLabel!.text)
     }
     
     /*
