@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class RestaurantListTableViewController: UITableViewController {
     
     let testDB = EasyQueueDB()
@@ -22,6 +23,7 @@ class RestaurantListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         data = testDB.getRestaurant()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,10 +48,18 @@ class RestaurantListTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.textLabel!.text = (data[indexPath.row]["name"] as! String)
-
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "queueSegue", sender: data[indexPath.row]["name"] )
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let restName = segue.destination as! QueueInController
+        restName.restaurantName = sender as! String
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
