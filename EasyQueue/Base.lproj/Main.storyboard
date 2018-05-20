@@ -88,8 +88,8 @@
                                             <rect key="frame" x="20" y="-2" width="80" height="67"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5R-le-Yxu">
-                                            <rect key="frame" x="127" y="16" width="67" height="32"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5R-le-Yxu">
+                                            <rect key="frame" x="127" y="16" width="62" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                             <nil key="textColor"/>
@@ -100,6 +100,7 @@
                                 <connections>
                                     <outlet property="RestaurantImageView" destination="xgX-d9-MmF" id="cVO-LL-GYj"/>
                                     <outlet property="RestaurantNameLabel" destination="W5R-le-Yxu" id="L8S-4e-gaL"/>
+                                    <segue destination="Xqn-bE-QHY" kind="show" id="23j-HA-ass"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -114,6 +115,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMt-ha-M3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1900.0000000000002" y="133.69565217391306"/>
+        </scene>
+        <!--Restaurant View Controller-->
+        <scene sceneID="uML-Xm-qRb">
+            <objects>
+                <viewController id="Xqn-bE-QHY" customClass="RestaurantViewController" customModule="EasyQueue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eRj-Or-qcc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GE-Mm-3WO">
+                                <rect key="frame" x="172" y="134" width="71" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4tO-UD-gh7">
+                                <rect key="frame" x="87" y="299" width="240" height="228"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="ZUl-og-BnH"/>
+                    </view>
+                    <connections>
+                        <outlet property="RestaurantImageView" destination="4tO-UD-gh7" id="GtT-iv-7Nx"/>
+                        <outlet property="RestaurantNameLabel" destination="9GE-Mm-3WO" id="UVs-tO-Sd1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AE2-xa-LRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2876.811594202899" y="133.69565217391306"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uGm-ld-F4j">
