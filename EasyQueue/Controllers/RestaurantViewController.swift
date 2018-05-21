@@ -14,7 +14,7 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var RestaurantImageView: UIImageView!
     
     let db = EasyQueueDB()
-    var restId = ""
+    var restId = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()

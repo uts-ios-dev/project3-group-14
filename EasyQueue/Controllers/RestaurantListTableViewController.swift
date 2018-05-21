@@ -99,7 +99,7 @@ class RestaurantListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // passing player name to game view controller
         if let result = segue.destination as? RestaurantViewController {
-            result.restId = String(tableView.indexPathForSelectedRow!.row + 1)
+            result.restId = tableView.indexPathForSelectedRow!.row + 1
         }
     }
     

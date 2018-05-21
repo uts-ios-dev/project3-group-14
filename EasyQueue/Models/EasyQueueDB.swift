@@ -21,7 +21,7 @@ class EasyQueueDB {
     }
     
     // get restaurant by id
-    func getRestaurant(id: String) -> [String : Any] {
+    func getRestaurant(id: Int) -> [String : Any] {
         _ = db.open()
         let data = db.query(sql: "SELECT * FROM restaurants WHERE id = '\(id)'")
         db.closeDB()
