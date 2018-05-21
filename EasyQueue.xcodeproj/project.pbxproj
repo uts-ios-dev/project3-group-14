@@ -121,7 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				E1E18B6720AC65EA00D2B4CB /* Controllers */,
-				E1E18B6C20AC683E00D2B4CB /* Modals */,
+				E1E18B6C20AC683E00D2B4CB /* Models */,
 				E1E18B9D20AC78FB00D2B4CB /* Libraries */,
 				E1E18B6620AC65D900D2B4CB /* Resources */,
 				E1AB4C6A20A44F1F00E7BAFF /* AppDelegate.swift */,
@@ -169,13 +169,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		E1E18B6C20AC683E00D2B4CB /* Modals */ = {
+		E1E18B6C20AC683E00D2B4CB /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				E1E18BA820AC8F4900D2B4CB /* EasyQueueData.swift */,
 				E1E18B6D20AC689600D2B4CB /* EasyQueueDB.swift */,
 			);
-			path = Modals;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E1E18B9A20AC785E00D2B4CB /* Frameworks */ = {

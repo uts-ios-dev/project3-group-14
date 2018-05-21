@@ -18,23 +18,23 @@ class EasyQueueDB {
         return data
     }
 //    get restaurant ID by name function
-    func getRestaurantID(restaurantName: String) -> [[String: Any]] {
+    func getRestaurantID(restaurantName: String) -> Int {
         _ = db.open()
-        let data = db.query(sql: "SELECT id FROM restaurants WHERE name = 'restaurantName' ")
+        let data = db.query(sql: "SELECT id FROM restaurants WHERE name = '\(restaurantName)' ")
         db.closeDB()
-        return data
+        return data[0]["id"] as! Int
     }
 //   set queue function
-    func setQueue(uid: Int, rid: Int, num: Int,  stat: Int) -> [[String: Any]] {
+    func setQueue(uid: Int, rid: Int, num: Int,  stat: Int) -> Int {
         _ = db.open()
-        let data = db.query(sql: "INSERT INTO queues (userid, restid, number, status) VALUES ('uid', 'rid', 'num', 'stat')")
+        let data = db.execute(sql: "INSERT INTO queues (userid, restid, number, status) VALUES ('\(uid)', '\(rid)', '\(num)', '\(stat)')")
         db.closeDB()
         return data
     }
 //    get queue function
     func getQueue(rid: Int) -> [[String: Any]]{
         _ = db.open()
-        let data = db.query(sql: "SELECT id, userid, restid, number, status FROM queues WHERE userid ='uid' ")
+        let data = db.query(sql: "SELECT id, userid, restid, number, status FROM queues WHERE userid ='\(rid)' ")
         db.closeDB()
         return data
     }
