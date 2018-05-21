@@ -10,8 +10,8 @@ import UIKit
 
 class RestaurantListTableViewController: UITableViewController {
     
-    let testDB = EasyQueueDB()
-    var data: [[String : Any]] = [["meh":"1"]]
+    let db = EasyQueueDB()
+    var data: [[String : Any]] = [[:]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,8 @@ class RestaurantListTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        data = testDB.getRestaurant()
+        
+        data = db.getRestaurant()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,16 +41,23 @@ class RestaurantListTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return data.count
     }
+    
+    // set costum cell height
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 65.0
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantListCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantListCell", for: indexPath) as! RestaurantListTableViewCell
 
         // Configure the cell...
-        cell.textLabel!.text = (data[indexPath.row]["name"] as! String)
+        cell.RestaurantImageView.image = UIImage(named: data[indexPath.row]["image"] as! String)
+        cell.RestaurantNameLabel.text = (data[indexPath.row]["name"] as! String)
+        cell.RestaurantNameLabel.sizeToFit()
 
         return cell
     }
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -85,14 +93,15 @@ class RestaurantListTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // passing player name to game view controller
+        if let result = segue.destination as? RestaurantViewController {
+            result.restId = tableView.indexPathForSelectedRow!.row + 1
+        }
     }
-    */
+    
 
 }
