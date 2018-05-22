@@ -12,6 +12,11 @@ class EasyQueueDB {
     let db = SQLiteBase()
     let path = Bundle.main.path(forResource: "EasyQueueDB", ofType: "sqlite3")!
     
+    // open db
+    func open() {
+        _ = db.open(dbPath: path)
+    }
+    
     // reload db script for development
     func makeDB() {
         purgeDB()
@@ -20,7 +25,7 @@ class EasyQueueDB {
     }
     
     func purgeDB() {
-        _ = db.open(dbPath: path)
+        self.open()
         let drops = db.query(sql: "select 'drop table ' || name || ';' as dropsql from sqlite_master where type = 'table';")
         for drop in drops {
             _ = db.execute(sql: drop["dropsql"] as! String)
@@ -29,7 +34,7 @@ class EasyQueueDB {
     }
     
     func makeTable() {
-        _ = db.open(dbPath: path)
+        self.open()
         _ = db.execute(sql: "CREATE TABLE `users` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `username` TEXT NOT NULL, `password` TEXT NOT NULL, `fullname` TEXT NOT NULL );")
         _ = db.execute(sql: "CREATE TABLE `restaurants` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `image` TEXT NOT NULL );")
         _ = db.execute(sql: "CREATE TABLE `dishes` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `restid` INTEGER NOT NULL, `name` TEXT NOT NULL );")
@@ -40,7 +45,7 @@ class EasyQueueDB {
     }
     
     func insertData() {
-        _ = db.open(dbPath: path)
+        self.open()
         
         // insert into users table
         _ = db.execute(sql: "INSERT INTO `users` VALUES (1,'user1','user1','user 1 name');")
@@ -58,7 +63,7 @@ class EasyQueueDB {
     
     // get all restaurants
     func getRestaurant() -> [[String : Any]] {
-        _ = db.open(dbPath: path)
+        self.open()
         let data = db.query(sql: "SELECT * FROM restaurants;")
         db.closeDB()
         
@@ -67,7 +72,7 @@ class EasyQueueDB {
     
     // get restaurant by id
     func getRestaurant(id: Int) -> [String : Any] {
-        _ = db.open(dbPath: path)
+        self.open()
         let data = db.query(sql: "SELECT * FROM restaurants WHERE id = '\(id)';")
         db.closeDB()
         
