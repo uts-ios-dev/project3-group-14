@@ -13,7 +13,7 @@ import SQLite3
 @objc(SQLiteDB)
 class SQLiteDB: SQLiteBase {
 	/// The SQLite database file name - defaults to `data.db`.
-	var DB_NAME = "EasyQueueDB.sqlite3"
+	var DB_NAME = "data.db"
 	/// Does this database have CloudKit support for remote data saving?
 	var cloudEnabled = false {
 		didSet {
