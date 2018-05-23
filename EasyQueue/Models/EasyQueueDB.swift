@@ -9,38 +9,7 @@
 import UIKit
 
 class EasyQueueDB {
-
-    let db = SQLiteDB.shared
-    
-    func getRestaurant() -> [[String : Any]] {
-        _ = db.open()
-        let data = db.query(sql: "SELECT * FROM restaurants")
-        db.closeDB()
-        return data
-    }
-//    get restaurant ID by name function
-    func getRestaurantID(restaurantName: String) -> Int {
-        _ = db.open()
-        let data = db.query(sql: "SELECT id FROM restaurants WHERE name = '\(restaurantName)' ")
-        db.closeDB()
-        return data[0]["id"] as! Int
-    }
-//   set queue function
-    func setQueue(uid: Int, rid: Int, num: Int,  stat: Int) -> Int {
-        _ = db.open()
-        let data = db.execute(sql: "INSERT INTO queues (userid, restid, number, status) VALUES ('\(uid)', '\(rid)', '\(num)', '\(stat)')")
-        db.closeDB()
-        return data
-    }
-//    get queue function
-    func getQueue(rid: Int) -> [[String: Any]]{
-        _ = db.open()
-        let data = db.query(sql: "SELECT id, userid, restid, number, status FROM queues WHERE userid ='\(rid)' ")
-        db.closeDB()
-        return data
-    }
-
-//    let db = SQLiteBase()
+    let db = SQLiteBase()
     let path = Bundle.main.path(forResource: "EasyQueueDB", ofType: "sqlite3")!
     
     // open db
@@ -92,7 +61,14 @@ class EasyQueueDB {
         db.closeDB()
     }
     
-
+    // get all restaurants
+    func getRestaurant() -> [[String : Any]] {
+        self.open()
+        let data = db.query(sql: "SELECT * FROM restaurants;")
+        db.closeDB()
+        
+        return data
+    }
     
     // get restaurant by id
     func getRestaurant(id: Int) -> [String : Any] {
@@ -103,5 +79,35 @@ class EasyQueueDB {
         return data[0]
     }
     
-}
+//    set queue
+    func setQueue(uid: Int, rid: Int, num: Int, stat: Int) {
+        self.open()
+        // insert into queue table
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES ('\(uid)','\(rid)','\(num)','\(stat)');")
+        db.closeDB()
+    }
 
+//    get queue
+    func getQueue(userid: Int) -> [[String : Any]] {
+        self.open()
+        let data = db.query(sql: "SELECT * FROM queues WHERE userid = '\(userid)';")
+        db.closeDB()
+        return data
+    }
+
+// set queue system
+    func setQueueSystem(rid: Int) {
+        self.open()
+        // insert into queue table
+        _ = db.execute(sql: "UPDATE queuesystem SET total = total + 1 WHERE restid = '\(rid)';")
+        db.closeDB()
+    }
+    
+// get queue system
+    func getQueueSystem(rid: Int) -> Int {
+        self.open()
+        let data = db.execute(sql: "SELECT current,total FROM queuesSystem WHERE restid = '\(rid)';")
+        db.closeDB()
+        return data
+    }
+}

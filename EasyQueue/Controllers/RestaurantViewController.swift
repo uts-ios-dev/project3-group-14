@@ -15,7 +15,8 @@ class RestaurantViewController: UIViewController {
     
     let db = EasyQueueDB()
     var restId = 0
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +34,14 @@ class RestaurantViewController: UIViewController {
         RestaurantNameLabel.sizeToFit()
         RestaurantImageView.image = UIImage(named: rest["image"] as! String)
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let restDetail = segue.destination as! QueueInController
+        restDetail.restaurantName = RestaurantNameLabel.text!
+        restDetail.restId = restId
+    }
+    
+    
     /*
     // MARK: - Navigation
 

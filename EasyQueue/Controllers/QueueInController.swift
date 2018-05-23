@@ -14,16 +14,16 @@ class QueueInController: UIViewController {
     @IBOutlet weak var customerAmount: UITextField!
 
     
-    let testDB = EasyQueueDB()
+    let db = EasyQueueDB()
     var restaurantName = "Restaurant"
-    var restaurantID = 0
+    var restId = 0
     var custAmount = 0
+    var userId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         restNameLabel.text = restaurantName
-        restaurantID = testDB.getRestaurantID(restaurantName: restaurantName)
-//        customerAmount.text = String(restaurantID)
+        let _ = db.getRestaurant(id: restId)
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,14 +41,18 @@ class QueueInController: UIViewController {
     
     @IBAction func queueButton(_ sender: UIButton) {
         custAmount = Int(customerAmount.text!)!
-        let result = testDB.setQueue(uid: 1, rid: restaurantID, num: custAmount, stat: 1)
-        performSegue(withIdentifier: "QueueSummary", sender: sender)
+        let _ = db.setQueue(uid: 1, rid: restId, num: custAmount, stat: 1)
+        let _ = db.setQueueSystem(rid: restId)
+//        performSegue(withIdentifier: "QueueSummary", sender: sender)
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-//        if segue.identifier == "yourIdentifier" {
-//
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let queueDetail = segue.destination as! QueueSummaryController
+        queueDetail.restaurantName = restaurantName
+        queueDetail.restId = restId
+        queueDetail.custAmount = custAmount
+        queueDetail.userId = 1
+    }
+ 
     
 }
