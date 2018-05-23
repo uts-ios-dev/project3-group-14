@@ -22,13 +22,11 @@ class RestaurantListTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-<<<<<<< HEAD
-        data = testDB.getRestaurant()
-        
-=======
+
+        data = db.getRestaurant()
+
         
         data = db.getRestaurant()
->>>>>>> 78fed9371e1d58329ee5e8b5d38bcf09e5d6b449
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,7 +55,7 @@ class RestaurantListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantListCell", for: indexPath) as! RestaurantListTableViewCell
 
         // Configure the cell...
-<<<<<<< HEAD
+
         cell.textLabel!.text = (data[indexPath.row]["name"] as! String)
         return cell
     }
@@ -71,7 +69,6 @@ class RestaurantListTableViewController: UITableViewController {
         restName.restaurantName = sender as! String
     }
     
-=======
         cell.RestaurantImageView.image = UIImage(named: data[indexPath.row]["image"] as! String)
         cell.RestaurantNameLabel.text = (data[indexPath.row]["name"] as! String)
         cell.RestaurantNameLabel.sizeToFit()
@@ -79,7 +76,6 @@ class RestaurantListTableViewController: UITableViewController {
         return cell
     }
     
->>>>>>> 78fed9371e1d58329ee5e8b5d38bcf09e5d6b449
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -126,4 +122,4 @@ class RestaurantListTableViewController: UITableViewController {
     }
     
 
-}
+

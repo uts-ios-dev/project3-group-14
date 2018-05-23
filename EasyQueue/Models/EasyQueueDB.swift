@@ -9,7 +9,7 @@
 import UIKit
 
 class EasyQueueDB {
-<<<<<<< HEAD
+
     let db = SQLiteDB.shared
     
     func getRestaurant() -> [[String : Any]] {
@@ -39,7 +39,7 @@ class EasyQueueDB {
         db.closeDB()
         return data
     }
-=======
+
     let db = SQLiteBase()
     let path = Bundle.main.path(forResource: "EasyQueueDB", ofType: "sqlite3")!
     
@@ -110,6 +110,5 @@ class EasyQueueDB {
         return data[0]
     }
     
->>>>>>> 78fed9371e1d58329ee5e8b5d38bcf09e5d6b449
 }
 

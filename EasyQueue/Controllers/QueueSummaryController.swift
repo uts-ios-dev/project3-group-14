@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QueueInController: UIViewController {
+class QueueSummaryController: UIViewController {
 
     
     let testDB = EasyQueueDB()
