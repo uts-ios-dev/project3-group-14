@@ -40,7 +40,7 @@ class EasyQueueDB {
         return data
     }
 
-    let db = SQLiteBase()
+//    let db = SQLiteBase()
     let path = Bundle.main.path(forResource: "EasyQueueDB", ofType: "sqlite3")!
     
     // open db
@@ -92,14 +92,7 @@ class EasyQueueDB {
         db.closeDB()
     }
     
-    // get all restaurants
-    func getRestaurant() -> [[String : Any]] {
-        self.open()
-        let data = db.query(sql: "SELECT * FROM restaurants;")
-        db.closeDB()
-        
-        return data
-    }
+
     
     // get restaurant by id
     func getRestaurant(id: Int) -> [String : Any] {
