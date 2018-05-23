@@ -16,6 +16,12 @@
 		E1AB4C7520A44F1F00E7BAFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1AB4C7320A44F1F00E7BAFF /* LaunchScreen.storyboard */; };
 		E1AB4C8020A44F1F00E7BAFF /* EasyQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB4C7F20A44F1F00E7BAFF /* EasyQueueTests.swift */; };
 		E1AB4C8B20A44F1F00E7BAFF /* EasyQueueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB4C8A20A44F1F00E7BAFF /* EasyQueueUITests.swift */; };
+		E1D32B4B20B19B9E0071A4B0 /* rest4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1D32B4720B19B9E0071A4B0 /* rest4.jpg */; };
+		E1D32B4C20B19B9E0071A4B0 /* rest1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1D32B4820B19B9E0071A4B0 /* rest1.jpg */; };
+		E1D32B4D20B19B9E0071A4B0 /* rest2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1D32B4920B19B9E0071A4B0 /* rest2.jpg */; };
+		E1D32B4E20B19B9E0071A4B0 /* rest3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1D32B4A20B19B9E0071A4B0 /* rest3.jpg */; };
+		E1D32B5020B1A2390071A4B0 /* RestaurantListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D32B4F20B1A2390071A4B0 /* RestaurantListTableViewCell.swift */; };
+		E1D32B5220B1B0BA0071A4B0 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D32B5120B1B0BA0071A4B0 /* RestaurantViewController.swift */; };
 		E1E18B6920AC664E00D2B4CB /* EasyQueueDB.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = E1E18B6820AC664E00D2B4CB /* EasyQueueDB.sqlite3 */; };
 		E1E18B6B20AC66BF00D2B4CB /* RestaurantListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E18B6A20AC66BF00D2B4CB /* RestaurantListTableViewController.swift */; };
 		E1E18B6E20AC689600D2B4CB /* EasyQueueDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E18B6D20AC689600D2B4CB /* EasyQueueDB.swift */; };
@@ -60,6 +66,12 @@
 		E1AB4C8620A44F1F00E7BAFF /* EasyQueueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyQueueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AB4C8A20A44F1F00E7BAFF /* EasyQueueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyQueueUITests.swift; sourceTree = "<group>"; };
 		E1AB4C8C20A44F1F00E7BAFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1D32B4720B19B9E0071A4B0 /* rest4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rest4.jpg; sourceTree = "<group>"; };
+		E1D32B4820B19B9E0071A4B0 /* rest1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rest1.jpg; sourceTree = "<group>"; };
+		E1D32B4920B19B9E0071A4B0 /* rest2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rest2.jpg; sourceTree = "<group>"; };
+		E1D32B4A20B19B9E0071A4B0 /* rest3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rest3.jpg; sourceTree = "<group>"; };
+		E1D32B4F20B1A2390071A4B0 /* RestaurantListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListTableViewCell.swift; sourceTree = "<group>"; };
+		E1D32B5120B1B0BA0071A4B0 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		E1E18B6820AC664E00D2B4CB /* EasyQueueDB.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = EasyQueueDB.sqlite3; sourceTree = "<group>"; };
 		E1E18B6A20AC66BF00D2B4CB /* RestaurantListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListTableViewController.swift; sourceTree = "<group>"; };
 		E1E18B6D20AC689600D2B4CB /* EasyQueueDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyQueueDB.swift; sourceTree = "<group>"; };
@@ -153,9 +165,21 @@
 			path = EasyQueueUITests;
 			sourceTree = "<group>";
 		};
+		E1D32B4620B199430071A4B0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E1D32B4820B19B9E0071A4B0 /* rest1.jpg */,
+				E1D32B4920B19B9E0071A4B0 /* rest2.jpg */,
+				E1D32B4A20B19B9E0071A4B0 /* rest3.jpg */,
+				E1D32B4720B19B9E0071A4B0 /* rest4.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		E1E18B6620AC65D900D2B4CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E1D32B4620B199430071A4B0 /* Images */,
 				E1E18B6820AC664E00D2B4CB /* EasyQueueDB.sqlite3 */,
 			);
 			path = Resources;
@@ -166,8 +190,13 @@
 			children = (
 				E1AB4C6C20A44F1F00E7BAFF /* ViewController.swift */,
 				E1E18B6A20AC66BF00D2B4CB /* RestaurantListTableViewController.swift */,
+<<<<<<< HEAD
 				337E076320B1902E00863170 /* QueueInController.swift */,
 				33AAE56120B2959B00653998 /* QueueSummaryController.swift */,
+=======
+				E1D32B4F20B1A2390071A4B0 /* RestaurantListTableViewCell.swift */,
+				E1D32B5120B1B0BA0071A4B0 /* RestaurantViewController.swift */,
+>>>>>>> 78fed9371e1d58329ee5e8b5d38bcf09e5d6b449
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -317,9 +346,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1AB4C7520A44F1F00E7BAFF /* LaunchScreen.storyboard in Resources */,
+				E1D32B4E20B19B9E0071A4B0 /* rest3.jpg in Resources */,
+				E1D32B4C20B19B9E0071A4B0 /* rest1.jpg in Resources */,
 				E1AB4C7220A44F1F00E7BAFF /* Assets.xcassets in Resources */,
+				E1D32B4D20B19B9E0071A4B0 /* rest2.jpg in Resources */,
 				E1AB4C7020A44F1F00E7BAFF /* Main.storyboard in Resources */,
 				E1E18B6920AC664E00D2B4CB /* EasyQueueDB.sqlite3 in Resources */,
+				E1D32B4B20B19B9E0071A4B0 /* rest4.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,8 +377,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				337E076420B1902E00863170 /* QueueInController.swift in Sources */,
 				33AAE56220B2959B00653998 /* QueueSummaryController.swift in Sources */,
+=======
+				E1D32B5020B1A2390071A4B0 /* RestaurantListTableViewCell.swift in Sources */,
+>>>>>>> 78fed9371e1d58329ee5e8b5d38bcf09e5d6b449
 				E1AB4C6D20A44F1F00E7BAFF /* ViewController.swift in Sources */,
 				E1E18BA620AC793D00D2B4CB /* SQLTable.swift in Sources */,
 				E1E18B6E20AC689600D2B4CB /* EasyQueueDB.swift in Sources */,
@@ -354,6 +391,7 @@
 				E1E18BA720AC793D00D2B4CB /* CloudDB.swift in Sources */,
 				E1E18BA520AC793D00D2B4CB /* SQLiteBase.swift in Sources */,
 				E1E18BA920AC8F4900D2B4CB /* EasyQueueData.swift in Sources */,
+				E1D32B5220B1B0BA0071A4B0 /* RestaurantViewController.swift in Sources */,
 				E1E18B6B20AC66BF00D2B4CB /* RestaurantListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -77,22 +77,31 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantListCell" textLabel="Qd4-XB-C1f" style="IBUITableViewCellStyleDefault" id="EkU-kb-oFq">
-                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantListCell" rowHeight="65" id="EkU-kb-oFq" customClass="RestaurantListTableViewCell" customModule="EasyQueue" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EkU-kb-oFq" id="Gde-hh-Pvu">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qd4-XB-C1f">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgX-d9-MmF">
+                                            <rect key="frame" x="20" y="-2" width="80" height="67"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5R-le-Yxu">
+                                            <rect key="frame" x="127" y="16" width="62" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="RestaurantImageView" destination="xgX-d9-MmF" id="cVO-LL-GYj"/>
+                                    <outlet property="RestaurantNameLabel" destination="W5R-le-Yxu" id="L8S-4e-gaL"/>
+                                    <segue destination="Xqn-bE-QHY" kind="show" id="23j-HA-ass"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -108,7 +117,47 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMt-ha-M3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="134"/>
+            <point key="canvasLocation" x="1900.0000000000002" y="133.69565217391306"/>
+        </scene>
+        <!--Restaurant View Controller-->
+        <scene sceneID="uML-Xm-qRb">
+            <objects>
+                <viewController id="Xqn-bE-QHY" customClass="RestaurantViewController" customModule="EasyQueue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eRj-Or-qcc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GE-Mm-3WO">
+                                <rect key="frame" x="172" y="134" width="71" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4tO-UD-gh7">
+                                <rect key="frame" x="87" y="299" width="240" height="228"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="228" id="GIj-hd-sFG"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4tO-UD-gh7" firstAttribute="leading" secondItem="ZUl-og-BnH" secondAttribute="leading" constant="87" id="Jy0-vl-mGC"/>
+                            <constraint firstItem="ZUl-og-BnH" firstAttribute="bottom" secondItem="4tO-UD-gh7" secondAttribute="bottom" constant="209" id="NyP-MW-VfZ"/>
+                            <constraint firstItem="9GE-Mm-3WO" firstAttribute="centerX" secondItem="ZUl-og-BnH" secondAttribute="centerX" id="Pwj-dY-Xh4"/>
+                            <constraint firstItem="9GE-Mm-3WO" firstAttribute="top" secondItem="ZUl-og-BnH" secondAttribute="top" constant="70" id="ddM-Oq-Chp"/>
+                            <constraint firstItem="9GE-Mm-3WO" firstAttribute="centerX" secondItem="4tO-UD-gh7" secondAttribute="centerX" id="to7-BL-4Hj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZUl-og-BnH"/>
+                    </view>
+                    <connections>
+                        <outlet property="RestaurantImageView" destination="4tO-UD-gh7" id="GtT-iv-7Nx"/>
+                        <outlet property="RestaurantNameLabel" destination="9GE-Mm-3WO" id="UVs-tO-Sd1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AE2-xa-LRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2876.811594202899" y="133.69565217391306"/>
         </scene>
         <!--Queue In Controller-->
         <scene sceneID="BRb-Jq-omW">
@@ -159,7 +208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNY-hh-cMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2920" y="134"/>
+            <point key="canvasLocation" x="2876" y="1107"/>
         </scene>
         <!--Queue Summary Controller-->
         <scene sceneID="54S-ch-GTE">
