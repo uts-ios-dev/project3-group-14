@@ -50,7 +50,7 @@ class QueueInController: UIViewController {
         let queueDetail = segue.destination as! QueueSummaryController
         queueDetail.restaurantName = restaurantName
         queueDetail.restId = restId
-        queueDetail.custAmount = custAmount
+        queueDetail.custAmount = Int(customerAmount.text!)!
         queueDetail.userId = 1
     }
  
