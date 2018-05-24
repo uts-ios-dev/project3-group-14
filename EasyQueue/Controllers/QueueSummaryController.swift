@@ -11,17 +11,12 @@ import UIKit
 
 class QueueSummaryController: UIViewController {
 
-    
     let db = EasyQueueDB()
-    var data: [[String : Any]] = [[:]]
     var restaurantName = "Restaurant"
     var restaurantID = 0
     var restId = 0
     var custAmount = 0
     var userId = 0
-    
-
-    
     
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var customerAmount: UILabel!
@@ -29,9 +24,9 @@ class QueueSummaryController: UIViewController {
     @IBOutlet weak var totalQueue: UILabel!
     @IBOutlet weak var timestamp: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        Timestamp
         let date = Date()
         let calendar = Calendar.current
         let day = calendar.component(.day, from: date)
@@ -40,20 +35,16 @@ class QueueSummaryController: UIViewController {
         let hour = calendar.component(.hour, from: date)
         let minute = calendar.component(.minute, from: date)
         let second = calendar.component(.second, from: date)
-        let queueTimestamp = "\(hour):\(minute):\(second)\n\(day)/\(month)/\(year)"
-
+        let queueTimestamp = "\(day)/\(month)/\(year)-\(hour):\(minute):\(second)"
+//         get Queusystem
         let restQueue = db.getQueueSystem(rid: restId)
         
         restaurantNameLabel.text = restaurantName
         customerAmount.text = String(custAmount)
-        currentQueue.text = (restQueue["current"] as! String)
-        totalQueue.text = (restQueue["total"] as! String)
+        currentQueue.text = String(restQueue["current"] as! Int)
+        totalQueue.text = String(restQueue["total"] as! Int)
         timestamp.text = queueTimestamp
-        
     }
-    
-    
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
