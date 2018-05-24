@@ -58,6 +58,14 @@ class EasyQueueDB {
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (4,'Dodee Paidang','rest4.jpg');")
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (5,'test','rest2.jpg');")
         
+        
+        // insert into queuesystem table
+        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (1,0,0);")
+        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (2,0,0);")
+        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (3,0,0);")
+        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (4,0,0);")
+        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (5,0,0);")
+        
         db.closeDB()
     }
     
@@ -88,17 +96,17 @@ class EasyQueueDB {
     }
 
 //    get queue
-    func getQueue(userid: Int) -> [[String : Any]] {
+    func getQueue(userid: Int) -> [String : Any] {
         self.open()
         let data = db.query(sql: "SELECT * FROM queues WHERE userid = '\(userid)';")
         db.closeDB()
-        return data
+        return data[0]
     }
 
 // set queue system
     func setQueueSystem(rid: Int) {
         self.open()
-        // insert into queue table
+        // update into queuesystem table
         _ = db.execute(sql: "UPDATE queuesystem SET total = total + 1 WHERE restid = '\(rid)';")
         db.closeDB()
     }
