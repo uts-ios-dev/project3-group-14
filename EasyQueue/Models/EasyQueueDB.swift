@@ -83,7 +83,7 @@ class EasyQueueDB {
     func setQueue(uid: Int, rid: Int, num: Int, stat: Int) {
         self.open()
         // insert into queue table
-        _ = db.execute(sql: "INSERT INTO `queues` VALUES ('\(uid)','\(rid)','\(num)','\(stat)');")
+        _ = db.execute(sql: "INSERT INTO `queues` ('userid', 'restid', 'number', 'status') VALUES ('\(uid)','\(rid)','\(num)','\(stat)');")
         db.closeDB()
     }
 
@@ -104,10 +104,10 @@ class EasyQueueDB {
     }
     
 // get queue system
-    func getQueueSystem(rid: Int) -> Int {
+    func getQueueSystem(rid: Int) -> [String : Any] {
         self.open()
-        let data = db.execute(sql: "SELECT current,total FROM queuesSystem WHERE restid = '\(rid)';")
+        let data = db.query(sql: "SELECT current,total FROM queuesystem WHERE restid = '\(rid)';")
         db.closeDB()
-        return data
+        return data[0]
     }
 }

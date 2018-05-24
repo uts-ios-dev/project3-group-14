@@ -41,11 +41,13 @@ class QueueSummaryController: UIViewController {
         let minute = calendar.component(.minute, from: date)
         let second = calendar.component(.second, from: date)
         let queueTimestamp = "\(hour):\(minute):\(second)\n\(day)/\(month)/\(year)"
+
+        let restQueue = db.getQueueSystem(rid: restId)
         
         restaurantNameLabel.text = restaurantName
         customerAmount.text = String(custAmount)
-//        totalQueue.text = (data[0]["total"] as! String)
-//        currentQueue.text = (data[0]["current"] as! String)
+        currentQueue.text = (restQueue["current"] as! String)
+        totalQueue.text = (restQueue["total"] as! String)
         timestamp.text = queueTimestamp
         
     }
