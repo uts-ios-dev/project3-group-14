@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7AEB5A3920BAC1330039CFD1 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB5A3820BAC1330039CFD1 /* BookingViewController.swift */; };
 		E1AB4C6B20A44F1F00E7BAFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB4C6A20A44F1F00E7BAFF /* AppDelegate.swift */; };
 		E1AB4C6D20A44F1F00E7BAFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB4C6C20A44F1F00E7BAFF /* ViewController.swift */; };
 		E1AB4C7020A44F1F00E7BAFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1AB4C6E20A44F1F00E7BAFF /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7AEB5A3820BAC1330039CFD1 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 		E1AB4C6720A44F1F00E7BAFF /* EasyQueue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyQueue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AB4C6A20A44F1F00E7BAFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1AB4C6C20A44F1F00E7BAFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				E1E18B6A20AC66BF00D2B4CB /* RestaurantListTableViewController.swift */,
 				E1D32B4F20B1A2390071A4B0 /* RestaurantListTableViewCell.swift */,
 				E1D32B5120B1B0BA0071A4B0 /* RestaurantViewController.swift */,
+				7AEB5A3820BAC1330039CFD1 /* BookingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				E1E18BA520AC793D00D2B4CB /* SQLiteBase.swift in Sources */,
 				E1E18BA920AC8F4900D2B4CB /* EasyQueueData.swift in Sources */,
 				E1D32B5220B1B0BA0071A4B0 /* RestaurantViewController.swift in Sources */,
+				7AEB5A3920BAC1330039CFD1 /* BookingViewController.swift in Sources */,
 				E1E18B6B20AC66BF00D2B4CB /* RestaurantListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
