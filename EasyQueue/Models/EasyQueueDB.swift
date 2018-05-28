@@ -104,13 +104,21 @@ class EasyQueueDB {
         inner join queues que on ord.queueid=que.id)
         inner join restaurants res on que.restid=res.id)
         inner join dishes dish on ord.dishid=dish.id
-        WHERE que.status = \(status)
+        WHERE que.status = \(status);
         """
         self.open()
         let data = db.query(sql: query)
         db.closeDB()
-        print (data)
         return data
+    }
+    
+    //get user details by username and password
+    func getUserByUsernameAndPassword(username:String, password: String) -> [[String:Any]] {
+        let query = "SELECT * FROM users WHERE username = '\(username)' and password = '\(password)';"
+        self.open()
+        let user = db.query(sql: query)
+        db.closeDB()
+        return user
     }
     
 }
