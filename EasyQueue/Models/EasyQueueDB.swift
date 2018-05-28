@@ -57,7 +57,7 @@ class EasyQueueDB {
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (3,'Hey kebab','rest3.jpg');")
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (4,'Dodee Paidang','rest4.jpg');")
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (5,'test','rest2.jpg');")
-        
+       
         //insert into order table
         _ = db.execute(sql: "INSERT INTO `orders` VALUES (11,12,1);")
         _ = db.execute(sql: "INSERT INTO `orders` VALUES (12,12,1);")
@@ -73,7 +73,13 @@ class EasyQueueDB {
         _ = db.execute(sql: "INSERT INTO `dishes` VALUES (12,4,'dish2');")
         _ = db.execute(sql: "INSERT INTO `dishes` VALUES (13,5,'dish3');")
 
-
+        
+        // insert into queuesystem table
+        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (1,0,0);")
+        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (2,0,0);")
+        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (3,0,0);")
+        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (4,0,0);")
+        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (5,0,0);")
         
         db.closeDB()
     }
@@ -123,3 +129,44 @@ class EasyQueueDB {
     
 }
 
+//    set queue
+    func setQueue(uid: Int, rid: Int, num: Int, stat: Int) {
+        self.open()
+        // insert into queue table
+        _ = db.execute(sql: "INSERT INTO `queues` ('userid', 'restid', 'number', 'status') VALUES ('\(uid)','\(rid)','\(num)','\(stat)');")
+        db.closeDB()
+    }
+
+//    get queue
+    func getQueue(userid: Int) -> [String : Any] {
+        self.open()
+        let data = db.query(sql: "SELECT * FROM queues WHERE userid = '\(userid)';")
+        db.closeDB()
+        return data[0]
+    }
+
+    // get restaurant by name
+    func getRestaurant(name: String) -> [[String : Any]] {
+        self.open()
+        let data = db.query(sql: "SELECT * FROM restaurants WHERE name LIKE '%\(name)%';")
+        db.closeDB()
+        
+        return data
+    }
+
+// set queue system
+    func setQueueSystem(rid: Int) {
+        self.open()
+        // update into queuesystem table
+        _ = db.execute(sql: "UPDATE queuesystem SET total = total + 1 WHERE restid = '\(rid)';")
+        db.closeDB()
+    }
+    
+// get queue system
+    func getQueueSystem(rid: Int) -> [String : Any] {
+        self.open()
+        let data = db.query(sql: "SELECT current,total FROM queuesystem WHERE restid = '\(rid)';")
+        db.closeDB()
+        return data[0]
+    }
+}
