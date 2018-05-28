@@ -8,11 +8,12 @@
 
 import UIKit
 
-class RestaurantListTableViewController: UITableViewController {
+class RestaurantListTableViewController: UITableViewController, UISearchResultsUpdating {
     
     let db = EasyQueueDB()
     var data: [[String : Any]] = [[:]]
-    
+    let searchController = UISearchController(searchResultsController: nil)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +21,13 @@ class RestaurantListTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        // search controller settings
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Restaurant"
+        tableView.tableHeaderView = searchController.searchBar
         
         data = db.getRestaurant()
     }
@@ -29,6 +37,15 @@ class RestaurantListTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func updateSearchResults(for searchController: UISearchController) {
+        if searchController.searchBar.text! == "" {
+            data = db.getRestaurant()
+        } else {
+            data = db.getRestaurant(name: searchController.searchBar.text!)
+        }
+        tableView.reloadData()
+    }
+
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

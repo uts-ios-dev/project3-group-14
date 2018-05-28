@@ -103,6 +103,15 @@ class EasyQueueDB {
         return data[0]
     }
 
+    // get restaurant by name
+    func getRestaurant(name: String) -> [[String : Any]] {
+        self.open()
+        let data = db.query(sql: "SELECT * FROM restaurants WHERE name LIKE '%\(name)%';")
+        db.closeDB()
+        
+        return data
+    }
+
 // set queue system
     func setQueueSystem(rid: Int) {
         self.open()
