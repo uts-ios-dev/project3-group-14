@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
    
+    @IBOutlet weak var MessageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +30,10 @@ class LoginViewController: UIViewController {
             user = db.getUserByUsernameAndPassword(username: username!, password: password!)
         
         if user.count == 1 {
-            print ("match, jump next")
-            //performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
+            MessageLabel.text = ""
+            performSegue(withIdentifier: "LoginToRestaurantList", sender: sender)
+        } else {
+            MessageLabel.text = "Username or password is incorrect, please try again !!"
         }
         
     }

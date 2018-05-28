@@ -126,8 +126,6 @@ class EasyQueueDB {
         db.closeDB()
         return user
     }
-    
-}
 
 //    set queue
     func setQueue(uid: Int, rid: Int, num: Int, stat: Int) {
