@@ -57,7 +57,22 @@ class EasyQueueDB {
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (3,'Hey kebab','rest3.jpg');")
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (4,'Dodee Paidang','rest4.jpg');")
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (5,'test','rest2.jpg');")
+       
+        //insert into order table
+        _ = db.execute(sql: "INSERT INTO `orders` VALUES (11,12,1);")
+        _ = db.execute(sql: "INSERT INTO `orders` VALUES (12,12,1);")
+        _ = db.execute(sql: "INSERT INTO `orders` VALUES (13,13,1);")
         
+        //insert into queue table
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES (11,1,3,7,0);")
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES (12,2,4,8,0);")
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES (13,2,5,9,2);")
+
+        //insert into dishes table
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (11,3,'dish1');")
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (12,4,'dish2');")
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (13,5,'dish3');")
+
         
         // insert into queuesystem table
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (1,0,0);")
@@ -87,6 +102,31 @@ class EasyQueueDB {
         return data[0]
     }
     
+    // get all bookings from database by using queueStatus as a filter
+    func getBookings(status:Int) -> [[String:Any]] {
+        let query = """
+        SELECT res.name as resName,que.number,que.status,dish.name as menuName, res.image
+        FROM ((orders ord
+        inner join queues que on ord.queueid=que.id)
+        inner join restaurants res on que.restid=res.id)
+        inner join dishes dish on ord.dishid=dish.id
+        WHERE que.status = \(status);
+        """
+        self.open()
+        let data = db.query(sql: query)
+        db.closeDB()
+        return data
+    }
+    
+    //get user details by username and password
+    func getUserByUsernameAndPassword(username:String, password: String) -> [[String:Any]] {
+        let query = "SELECT * FROM users WHERE username = '\(username)' and password = '\(password)';"
+        self.open()
+        let user = db.query(sql: query)
+        db.closeDB()
+        return user
+    }
+
 //    set queue
     func setQueue(uid: Int, rid: Int, num: Int, stat: Int) {
         self.open()
