@@ -23,7 +23,7 @@
                                 <rect key="frame" x="188" y="463" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TxK-Iv-9BC"/>
+                                    <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Ym-rH-9nP"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="s1J-Ti-YR2">
@@ -91,9 +91,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="MessageLabel" destination="hhc-7T-Omx" id="IRU-14-rEQ"/>
-                        <outlet property="passwordTextField" destination="4Y6-fo-8jU" id="LYB-a3-TMJ"/>
-                        <outlet property="usernameTextField" destination="zmT-Om-wl4" id="kT8-M0-2aj"/>
+                        <outlet property="MessageLabel" destination="LTu-wo-4PG" id="1yz-7d-dA1"/>
+                        <outlet property="passwordTextField" destination="4Y6-fo-8jU" id="tDW-kg-Emv"/>
+                        <outlet property="usernameTextField" destination="zmT-Om-wl4" id="6W4-X3-Y4w"/>
                         <segue destination="BCk-8t-saP" kind="show" identifier="LoginToRestaurantList" id="kef-k3-ycI"/>
                     </connections>
                 </viewController>
@@ -268,6 +268,73 @@
             </objects>
             <point key="canvasLocation" x="2876.811594202899" y="133.69565217391306"/>
         </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="Bqi-jJ-GKR">
+            <objects>
+                <tableViewController id="Pg1-yD-YDT" customClass="MenuViewController" customModule="EasyQueue" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RI2-pH-wF6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuIdentifier" id="I3I-wo-SxY">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I3I-wo-SxY" id="IpY-GT-MMm">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="toOrderView" id="asK-yZ-ugM">
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="asK-yZ-ugM" id="TUi-VR-7gY">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Pg1-yD-YDT" id="WVY-Vm-SX9"/>
+                            <outlet property="delegate" destination="Pg1-yD-YDT" id="ZuE-dT-0KH"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="YHZ-yN-5DQ" kind="showDetail" identifier="showDetail" id="5tC-rY-COu"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eNt-c7-xmt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3806" y="134"/>
+        </scene>
+        <!--Order View Controller-->
+        <scene sceneID="kIo-gZ-S6l">
+            <objects>
+                <tableViewController id="YHZ-yN-5DQ" customClass="OrderViewController" customModule="EasyQueue" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="h2Z-gK-vhf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderDetail" id="rPk-ER-xQF">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rPk-ER-xQF" id="7CT-mC-Vi8">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YHZ-yN-5DQ" id="nhA-HC-Bj5"/>
+                            <outlet property="delegate" destination="YHZ-yN-5DQ" id="zs4-I9-4W6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rm6-MZ-GFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4651" y="134"/>
+        </scene>
         <!--Queue In Controller-->
         <scene sceneID="BRb-Jq-omW">
             <objects>
@@ -410,6 +477,7 @@
                         <outlet property="restaurantNameLabel" destination="fCE-1A-kfb" id="bSY-n1-w4K"/>
                         <outlet property="timestamp" destination="rjk-eW-WI9" id="5zr-AH-nDZ"/>
                         <outlet property="totalQueue" destination="KsX-67-5gh" id="RrT-af-rWp"/>
+                        <segue destination="Pg1-yD-YDT" kind="show" id="2gT-ya-TlD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVL-sp-xQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>

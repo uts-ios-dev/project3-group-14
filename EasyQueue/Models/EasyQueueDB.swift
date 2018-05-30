@@ -50,7 +50,7 @@ class EasyQueueDB {
         // insert into users table
         _ = db.execute(sql: "INSERT INTO `users` VALUES (1,'user1','user1','user 1 name');")
         _ = db.execute(sql: "INSERT INTO `users` VALUES (2,'user2','user2','user 2 name');")
-        
+
         // insert into restaurants table
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (1,'Menya mappen','rest1.jpg');")
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (2,'Chinese noodle','rest2.jpg');")
@@ -68,18 +68,21 @@ class EasyQueueDB {
         _ = db.execute(sql: "INSERT INTO `queues` VALUES (12,2,4,8,0);")
         _ = db.execute(sql: "INSERT INTO `queues` VALUES (13,2,5,9,2);")
 
-        //insert into dishes table
-        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (11,3,'dish1');")
-        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (12,4,'dish2');")
-        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (13,5,'dish3');")
-
-        
         // insert into queuesystem table
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (1,0,0);")
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (2,0,0);")
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (3,0,0);")
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (4,0,0);")
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (5,0,0);")
+
+        // insert dishes
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (1,1,'Honey Chicken');")
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (2,2,'Beef Noodle');")
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (3,3,'Hawaii Pizza');")
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (4,4,'Watermelon Cake');")
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (5,1,'Chicken Nuggets');")
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (6,1,'French Fries');")
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (7,1,'Coke');")
         
         db.closeDB()
     }
@@ -100,6 +103,14 @@ class EasyQueueDB {
         db.closeDB()
         
         return data[0]
+    }
+    
+    func  getDishesByRestaurantId(id : Int) -> [[String : Any]] {
+        self.open()
+        let data = db.query(sql: "SELECT * FROM dishes WHERE restid = '\(id)';")   //
+        db.closeDB()
+        
+        return data
     }
     
     // get all bookings from database by using queueStatus as a filter
