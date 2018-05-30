@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7AEB5A3920BAC1330039CFD1 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB5A3820BAC1330039CFD1 /* BookingViewController.swift */; };
 		337E076420B1902E00863170 /* QueueInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337E076320B1902E00863170 /* QueueInController.swift */; };
 		33AAE56220B2959B00653998 /* QueueSummaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AAE56120B2959B00653998 /* QueueSummaryController.swift */; };
 		9848DA4720BBCC68003704B6 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848DA4520BBCC68003704B6 /* OrderViewController.swift */; };
 		9848DA4820BBCC68003704B6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848DA4620BBCC68003704B6 /* MenuViewController.swift */; };
 		E1AB4C6B20A44F1F00E7BAFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB4C6A20A44F1F00E7BAFF /* AppDelegate.swift */; };
-		E1AB4C6D20A44F1F00E7BAFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB4C6C20A44F1F00E7BAFF /* ViewController.swift */; };
+		E1AB4C6D20A44F1F00E7BAFF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB4C6C20A44F1F00E7BAFF /* LoginViewController.swift */; };
 		E1AB4C7020A44F1F00E7BAFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1AB4C6E20A44F1F00E7BAFF /* Main.storyboard */; };
 		E1AB4C7220A44F1F00E7BAFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1AB4C7120A44F1F00E7BAFF /* Assets.xcassets */; };
 		E1AB4C7520A44F1F00E7BAFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1AB4C7320A44F1F00E7BAFF /* LaunchScreen.storyboard */; };
@@ -53,13 +54,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7AEB5A3820BAC1330039CFD1 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 		337E076320B1902E00863170 /* QueueInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueInController.swift; sourceTree = "<group>"; };
 		33AAE56120B2959B00653998 /* QueueSummaryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueSummaryController.swift; sourceTree = "<group>"; };
 		9848DA4520BBCC68003704B6 /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		9848DA4620BBCC68003704B6 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		E1AB4C6720A44F1F00E7BAFF /* EasyQueue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyQueue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AB4C6A20A44F1F00E7BAFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E1AB4C6C20A44F1F00E7BAFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E1AB4C6C20A44F1F00E7BAFF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E1AB4C6F20A44F1F00E7BAFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1AB4C7120A44F1F00E7BAFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1AB4C7420A44F1F00E7BAFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -192,7 +194,7 @@
 		E1E18B6720AC65EA00D2B4CB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E1AB4C6C20A44F1F00E7BAFF /* ViewController.swift */,
+				E1AB4C6C20A44F1F00E7BAFF /* LoginViewController.swift */,
 				E1E18B6A20AC66BF00D2B4CB /* RestaurantListTableViewController.swift */,
 				9848DA4620BBCC68003704B6 /* MenuViewController.swift */,
 				9848DA4520BBCC68003704B6 /* OrderViewController.swift */,
@@ -200,6 +202,7 @@
 				33AAE56120B2959B00653998 /* QueueSummaryController.swift */,
 				E1D32B4F20B1A2390071A4B0 /* RestaurantListTableViewCell.swift */,
 				E1D32B5120B1B0BA0071A4B0 /* RestaurantViewController.swift */,
+				7AEB5A3820BAC1330039CFD1 /* BookingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				E1D32B5020B1A2390071A4B0 /* RestaurantListTableViewCell.swift in Sources */,
 				9848DA4720BBCC68003704B6 /* OrderViewController.swift in Sources */,
 				E1AB4C6D20A44F1F00E7BAFF /* ViewController.swift in Sources */,
+				E1AB4C6D20A44F1F00E7BAFF /* LoginViewController.swift in Sources */,
 				E1E18BA620AC793D00D2B4CB /* SQLTable.swift in Sources */,
 				E1E18B6E20AC689600D2B4CB /* EasyQueueDB.swift in Sources */,
 				E1E18BA420AC793D00D2B4CB /* SQLiteDB.swift in Sources */,
@@ -394,6 +398,7 @@
 				E1E18BA520AC793D00D2B4CB /* SQLiteBase.swift in Sources */,
 				E1E18BA920AC8F4900D2B4CB /* EasyQueueData.swift in Sources */,
 				E1D32B5220B1B0BA0071A4B0 /* RestaurantViewController.swift in Sources */,
+				7AEB5A3920BAC1330039CFD1 /* BookingViewController.swift in Sources */,
 				E1E18B6B20AC66BF00D2B4CB /* RestaurantListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
