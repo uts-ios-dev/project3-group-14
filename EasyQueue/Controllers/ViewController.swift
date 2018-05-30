@@ -12,10 +12,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        let db = EasyQueueDB()
-        db.makeDB()
+         let db = EasyQueueDB()
+        //db.makeDB()
+       
+        
+        
+       
+        print(db.getRestaurant(id : 1))
+        print(db.getMenuByRestaurantId(id: 1))
+        
     }
 
     override func didReceiveMemoryWarning() {
