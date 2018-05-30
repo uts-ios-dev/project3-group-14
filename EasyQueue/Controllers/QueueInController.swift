@@ -41,9 +41,13 @@ class QueueInController: UIViewController {
     
     @IBAction func queueButton(_ sender: UIButton) {
         custAmount = Int(customerAmount.text!)!
-        let _ = db.setQueue(uid: 1, rid: restId, num: custAmount, stat: 1)
-        let _ = db.setQueueSystem(rid: restId)
-//        performSegue(withIdentifier: "QueueSummary", sender: sender)
+        if (custAmount <= 0 || customerAmount.text! == "") {
+            customerAmount.text = "Invalid seats number, please enter number again."
+        }else{
+            let _ = db.setQueue(uid: 1, rid: restId, num: custAmount, stat: 1)
+            let _ = db.setQueueSystem(rid: restId)
+            //        performSegue(withIdentifier: "QueueSummary", sender: sender)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
