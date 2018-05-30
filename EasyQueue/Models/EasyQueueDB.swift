@@ -19,8 +19,8 @@ class EasyQueueDB {
     
     // reload db script for development
     func makeDB() {
-        //purgeDB()
-        //makeTable()
+        purgeDB()
+        makeTable()
         insertData()
     }
     
@@ -37,7 +37,7 @@ class EasyQueueDB {
         self.open()
         _ = db.execute(sql: "CREATE TABLE `users` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `username` TEXT NOT NULL, `password` TEXT NOT NULL, `fullname` TEXT NOT NULL );")
         _ = db.execute(sql: "CREATE TABLE `restaurants` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `image` TEXT NOT NULL );")
-        _ = db.execute(sql: "CREATE TABLE `menus` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `restid` INTEGER NOT NULL, `name` TEXT NOT NULL );")
+        _ = db.execute(sql: "CREATE TABLE `dishes` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `restid` INTEGER NOT NULL, `name` TEXT NOT NULL );")
         _ = db.execute(sql: "CREATE TABLE `queues` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `userid` INTEGER NOT NULL, `restid` INTEGER NOT NULL, `number` INTEGER NOT NULL, `status` INTEGER NOT NULL DEFAULT 0 );")
         _ = db.execute(sql: "CREATE TABLE `queuesystem` ( `restid` INTEGER NOT NULL, `current` INTEGER NOT NULL, `total` INTEGER NOT NULL );")
         _ = db.execute(sql: "CREATE TABLE `orders` ( `queueid` INTEGER NOT NULL, `dishid` INTEGER NOT NULL, `quantity` INTEGER NOT NULL );")
@@ -68,11 +68,6 @@ class EasyQueueDB {
         _ = db.execute(sql: "INSERT INTO `queues` VALUES (12,2,4,8,0);")
         _ = db.execute(sql: "INSERT INTO `queues` VALUES (13,2,5,9,2);")
 
-        //insert into dishes table
-        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (11,3,'dish1');")
-        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (12,4,'dish2');")
-        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (13,5,'dish3');")
-
         // insert into queuesystem table
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (1,0,0);")
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (2,0,0);")
@@ -80,14 +75,14 @@ class EasyQueueDB {
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (4,0,0);")
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (5,0,0);")
 
-        // insert menu
-        _ = db.execute(sql: "INSERT INTO `menus` VALUES (1,1,'Honey Chicken');")
-        _ = db.execute(sql: "INSERT INTO `menus` VALUES (2,2,'Beef Noodle');")
-        _ = db.execute(sql: "INSERT INTO `menus` VALUES (3,3,'Hawaii Pizza');")
-        _ = db.execute(sql: "INSERT INTO `menus` VALUES (4,4,'Watermelon Cake');")
-        _ = db.execute(sql: "INSERT INTO `menus` VALUES (5,1,'Chicken Nuggets');")
-        _ = db.execute(sql: "INSERT INTO `menus` VALUES (6,1,'French Fries');")
-        _ = db.execute(sql: "INSERT INTO `menus` VALUES (7,1,'Coke');")
+        // insert dishes
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (1,1,'Honey Chicken');")
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (2,2,'Beef Noodle');")
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (3,3,'Hawaii Pizza');")
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (4,4,'Watermelon Cake');")
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (5,1,'Chicken Nuggets');")
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (6,1,'French Fries');")
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (7,1,'Coke');")
         
         db.closeDB()
     }
@@ -110,9 +105,9 @@ class EasyQueueDB {
         return data[0]
     }
     
-    func  getMenuByRestaurantId(id : Int) -> [[String : Any]] {
+    func  getDishesByRestaurantId(id : Int) -> [[String : Any]] {
         self.open()
-        let data = db.query(sql: "SELECT * FROM menus WHERE restid = '\(id)';")   //
+        let data = db.query(sql: "SELECT * FROM dishes WHERE restid = '\(id)';")   //
         db.closeDB()
         
         return data

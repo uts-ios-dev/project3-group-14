@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pg1-yD-YDT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,7 +14,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Login View Controller" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Login View Controller" customClass="LoginViewController" customModule="EasyQueue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                 <rect key="frame" x="188" y="463" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TxK-Iv-9BC"/>
+                                    <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Ym-rH-9nP"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="s1J-Ti-YR2">
@@ -91,9 +91,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="MessageLabel" destination="hhc-7T-Omx" id="IRU-14-rEQ"/>
-                        <outlet property="passwordTextField" destination="4Y6-fo-8jU" id="LYB-a3-TMJ"/>
-                        <outlet property="usernameTextField" destination="zmT-Om-wl4" id="kT8-M0-2aj"/>
+                        <outlet property="MessageLabel" destination="LTu-wo-4PG" id="1yz-7d-dA1"/>
+                        <outlet property="passwordTextField" destination="4Y6-fo-8jU" id="tDW-kg-Emv"/>
+                        <outlet property="usernameTextField" destination="zmT-Om-wl4" id="6W4-X3-Y4w"/>
                         <segue destination="BCk-8t-saP" kind="show" identifier="LoginToRestaurantList" id="kef-k3-ycI"/>
                     </connections>
                 </viewController>
@@ -477,6 +477,7 @@
                         <outlet property="restaurantNameLabel" destination="fCE-1A-kfb" id="bSY-n1-w4K"/>
                         <outlet property="timestamp" destination="rjk-eW-WI9" id="5zr-AH-nDZ"/>
                         <outlet property="totalQueue" destination="KsX-67-5gh" id="RrT-af-rWp"/>
+                        <segue destination="Pg1-yD-YDT" kind="show" id="2gT-ya-TlD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVL-sp-xQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>

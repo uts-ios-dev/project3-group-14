@@ -24,7 +24,7 @@ class MenuViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        data = db.getMenuByRestaurantId(id: restID)
+        data = db.getDishesByRestaurantId(id: restID)
         
         for _ in 0...data.count
         {
