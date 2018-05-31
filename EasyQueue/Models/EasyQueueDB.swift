@@ -47,35 +47,36 @@ class EasyQueueDB {
     func insertData() {
         self.open()
         
-        // insert into users table
+        // insert into users table (id, username, password, fullname)
         _ = db.execute(sql: "INSERT INTO `users` VALUES (1,'user1','user1','user 1 name');")
         _ = db.execute(sql: "INSERT INTO `users` VALUES (2,'user2','user2','user 2 name');")
 
-        // insert into restaurants table
+        // insert into restaurants table (id, name, image)
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (1,'Menya mappen','rest1.jpg');")
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (2,'Chinese noodle','rest2.jpg');")
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (3,'Hey kebab','rest3.jpg');")
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (4,'Dodee Paidang','rest4.jpg');")
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (5,'test','rest2.jpg');")
        
-        //insert into order table
-        _ = db.execute(sql: "INSERT INTO `orders` VALUES (11,12,1);")
-        _ = db.execute(sql: "INSERT INTO `orders` VALUES (12,12,1);")
-        _ = db.execute(sql: "INSERT INTO `orders` VALUES (13,13,1);")
+        //insert into order table (queueid, dishid, quantity)
+        _ = db.execute(sql: "INSERT INTO `orders` VALUES (1,3,1);")
+        _ = db.execute(sql: "INSERT INTO `orders` VALUES (2,4,1);")
+        _ = db.execute(sql: "INSERT INTO `orders` VALUES (3,5,1);")
         
-        //insert into queue table
-        _ = db.execute(sql: "INSERT INTO `queues` VALUES (11,1,3,7,0);")
-        _ = db.execute(sql: "INSERT INTO `queues` VALUES (12,2,4,8,0);")
-        _ = db.execute(sql: "INSERT INTO `queues` VALUES (13,2,5,9,2);")
+        //insert into queue table (id, userid, restid,bookingNumber, status)
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES (1,1,3,7,0);")
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES (2,1,4,8,0);")
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES (3,1,5,9,2);")
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES (4,1,1,6,2);")
 
-        // insert into queuesystem table
+        // insert into queuesystem table (restid, current, total)
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (1,0,0);")
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (2,0,0);")
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (3,0,0);")
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (4,0,0);")
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (5,0,0);")
 
-        // insert dishes
+        // insert dishes (id, restid, name)
         _ = db.execute(sql: "INSERT INTO `dishes` VALUES (1,1,'Honey Chicken');")
         _ = db.execute(sql: "INSERT INTO `dishes` VALUES (2,2,'Beef Noodle');")
         _ = db.execute(sql: "INSERT INTO `dishes` VALUES (3,3,'Hawaii Pizza');")
