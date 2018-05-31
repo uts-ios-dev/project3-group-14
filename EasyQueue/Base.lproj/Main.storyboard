@@ -78,7 +78,6 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="s1J-Ti-YR2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1GK-yv-EFL"/>
-                            <constraint firstItem="hhc-7T-Omx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="34u-3O-Ab6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s1J-Ti-YR2" secondAttribute="trailing" constant="20" id="KGa-PO-gJS"/>
                             <constraint firstItem="hhc-7T-Omx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.5" id="LTu-wo-4PG"/>
                             <constraint firstItem="PSc-5S-DKS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PeC-US-GEP"/>
@@ -91,7 +90,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="MessageLabel" destination="LTu-wo-4PG" id="1yz-7d-dA1"/>
+                        <outlet property="messageLabel" destination="hhc-7T-Omx" id="Gdn-A1-soc"/>
                         <outlet property="passwordTextField" destination="4Y6-fo-8jU" id="tDW-kg-Emv"/>
                         <outlet property="usernameTextField" destination="zmT-Om-wl4" id="6W4-X3-Y4w"/>
                         <segue destination="BCk-8t-saP" kind="show" identifier="LoginToRestaurantList" id="kef-k3-ycI"/>

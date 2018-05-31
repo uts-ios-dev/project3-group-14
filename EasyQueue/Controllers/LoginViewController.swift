@@ -14,8 +14,8 @@ class LoginViewController: UIViewController {
     let db = EasyQueueDB()
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-   
-    @IBOutlet weak var MessageLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +30,10 @@ class LoginViewController: UIViewController {
             user = db.getUserByUsernameAndPassword(username: username!, password: password!)
         
         if user.count == 1 {
-            MessageLabel.text = ""
+            messageLabel.text = ""
             performSegue(withIdentifier: "LoginToRestaurantList", sender: sender)
         } else {
-            MessageLabel.text = "Username or password is incorrect, please try again !!"
+            messageLabel.text = "Username or password is incorrect, please try again !!"
         }
         
     }
