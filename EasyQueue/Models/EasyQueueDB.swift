@@ -9,12 +9,12 @@
 import UIKit
 
 class EasyQueueDB {
-    private let db = SQLiteBase()
+    private let db = SQLiteDB.shared
     private let path = Bundle.main.path(forResource: "EasyQueueDB", ofType: "sqlite3")!
     
     // open db
     func open() {
-        _ = db.open(dbPath: path)
+        _ = db.open()
     }
     
     // reload db script for development
