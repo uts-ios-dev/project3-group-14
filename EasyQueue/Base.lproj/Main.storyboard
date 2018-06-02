@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pg1-yD-YDT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -299,14 +299,14 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="YHZ-yN-5DQ" kind="showDetail" identifier="showDetail" id="5tC-rY-COu"/>
+                        <segue destination="YHZ-yN-5DQ" kind="show" identifier="showDetail" id="gDR-HI-HJc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNt-c7-xmt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3806" y="134"/>
         </scene>
-        <!--Order View Controller-->
+        <!--Order List-->
         <scene sceneID="kIo-gZ-S6l">
             <objects>
                 <tableViewController id="YHZ-yN-5DQ" customClass="OrderViewController" customModule="EasyQueue" customModuleProvider="target" sceneMemberID="viewController">
@@ -314,14 +314,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aI6-a3-vc3">
-                            <rect key="frame" x="0.0" y="72" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Done"/>
-                            <connections>
-                                <action selector="doneButton:" destination="YHZ-yN-5DQ" eventType="touchUpInside" id="Sam-FU-gfZ"/>
-                            </connections>
-                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderDetail" id="rPk-ER-xQF">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
@@ -337,6 +329,13 @@
                             <outlet property="delegate" destination="YHZ-yN-5DQ" id="zs4-I9-4W6"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Order List" id="rYt-S3-quV">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="CZ0-XF-e7w">
+                            <connections>
+                                <segue destination="Eqz-xe-buu" kind="show" id="h7y-C8-zfl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rm6-MZ-GFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -474,6 +473,15 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrO-jC-j0O">
+                                <rect key="frame" x="139" y="521" width="136" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Have a Look Menu"/>
+                                <connections>
+                                    <action selector="menuButton:" destination="Oa8-Dd-qfh" eventType="touchUpInside" id="RD3-Og-N43"/>
+                                    <segue destination="Pg1-yD-YDT" kind="show" id="bdd-MX-6QW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Sf2-91-RoA"/>
@@ -488,7 +496,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVL-sp-xQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3829" y="1106"/>
+            <point key="canvasLocation" x="3828.985507246377" y="1105.4347826086957"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uGm-ld-F4j">
@@ -508,4 +516,7 @@
             <point key="canvasLocation" x="1016" y="134"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="EET-Sh-Ajx"/>
+    </inferredMetricsTieBreakers>
 </document>
