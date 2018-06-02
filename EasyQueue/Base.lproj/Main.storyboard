@@ -299,14 +299,14 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="YHZ-yN-5DQ" kind="showDetail" identifier="showDetail" id="5tC-rY-COu"/>
+                        <segue destination="YHZ-yN-5DQ" kind="show" identifier="showDetail" id="gDR-HI-HJc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNt-c7-xmt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3806" y="134"/>
         </scene>
-        <!--Order View Controller-->
+        <!--Order List-->
         <scene sceneID="kIo-gZ-S6l">
             <objects>
                 <tableViewController id="YHZ-yN-5DQ" customClass="OrderViewController" customModule="EasyQueue" customModuleProvider="target" sceneMemberID="viewController">
@@ -329,10 +329,17 @@
                             <outlet property="delegate" destination="YHZ-yN-5DQ" id="zs4-I9-4W6"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Order List" id="rYt-S3-quV">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="CZ0-XF-e7w">
+                            <connections>
+                                <segue destination="Eqz-xe-buu" kind="show" id="h7y-C8-zfl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rm6-MZ-GFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4651" y="134"/>
+            <point key="canvasLocation" x="4650.7246376811599" y="133.69565217391306"/>
         </scene>
         <!--Queue In Controller-->
         <scene sceneID="BRb-Jq-omW">
@@ -467,6 +474,15 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrO-jC-j0O">
+                                <rect key="frame" x="139" y="521" width="136" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Have a Look Menu"/>
+                                <connections>
+                                    <action selector="menuButton:" destination="Oa8-Dd-qfh" eventType="touchUpInside" id="RD3-Og-N43"/>
+                                    <segue destination="Pg1-yD-YDT" kind="show" id="bdd-MX-6QW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Sf2-91-RoA"/>
@@ -477,12 +493,11 @@
                         <outlet property="restaurantNameLabel" destination="fCE-1A-kfb" id="bSY-n1-w4K"/>
                         <outlet property="timestamp" destination="rjk-eW-WI9" id="5zr-AH-nDZ"/>
                         <outlet property="totalQueue" destination="KsX-67-5gh" id="RrT-af-rWp"/>
-                        <segue destination="Pg1-yD-YDT" kind="show" id="2gT-ya-TlD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVL-sp-xQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3829" y="1106"/>
+            <point key="canvasLocation" x="3828.985507246377" y="1105.4347826086957"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uGm-ld-F4j">
@@ -502,4 +517,7 @@
             <point key="canvasLocation" x="1016" y="134"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="EET-Sh-Ajx"/>
+    </inferredMetricsTieBreakers>
 </document>

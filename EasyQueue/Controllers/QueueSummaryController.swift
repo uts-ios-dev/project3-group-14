@@ -23,6 +23,8 @@ class QueueSummaryController: UIViewController {
     @IBOutlet weak var currentQueue: UILabel!
     @IBOutlet weak var totalQueue: UILabel!
     @IBOutlet weak var timestamp: UILabel!
+    @IBAction func menuButton(_ sender: Any) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,11 @@ class QueueSummaryController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let menuView = segue.destination as! MenuViewController
+        menuView.restID = restId
     }
     
     
