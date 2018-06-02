@@ -12,8 +12,12 @@ class MenuViewController: UITableViewController {
 
     let db = EasyQueueDB()
     var data: [[String : Any]] = [[:]]
+    var orderList: [[String : Any]] = [[:]]
     var checkFlag  = [Bool]()
+    var runCheck = true
     var restID =  0     // passed from the previous page
+    var queueId = 0     // passed from the previous page
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -25,8 +29,9 @@ class MenuViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         data = db.getDishesByRestaurantId(id: restID)
+        orderList = db.getOrder(queueId: queueId)
         
-        for _ in 0...data.count
+        for _ in 0..<data.count
         {
                 checkFlag.append(false)
         }
@@ -65,17 +70,26 @@ class MenuViewController: UITableViewController {
         if(indexPath.section == 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "menuIdentifier", for: indexPath)
             
+            cell.textLabel!.text = (data[indexPath.row]["name"] as! String)
             
-            cell.textLabel?.text = (data[indexPath.row]["name"] as! String)
             if(checkFlag[indexPath.row]){
                 cell.accessoryType = .checkmark
             }else{
                 cell.accessoryType = .none
             }
+            
+            if orderList.count > 0 && runCheck == true{
+                for i in 0..<orderList.count {
+                    if (orderList[i]["dishid"] as! Int) == (data[indexPath.row]["id"] as! Int) {
+                        cell.accessoryType = .checkmark
+                    }
+                }
+            }
+            
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "toOrderView", for: indexPath)
-            cell.textLabel?.text = "Order"
+            cell.textLabel!.text = "Order"
             cell.accessoryType = .disclosureIndicator
             return cell
         }
@@ -83,10 +97,24 @@ class MenuViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        runCheck = false
         if(indexPath.section == 0){
             checkFlag[indexPath.row] = !checkFlag[indexPath.row]
             tableView.reloadData()
         }else{
+            var orders = [[String : Any]]()
+            for index in 0..<data.count{
+                if(checkFlag[index]){
+                    orders.append(data[index])
+                }
+            }
+            
+            db.delOrder(queueId: queueId) // delete the orders first
+            for i in 0..<orders.count {
+                // add the orders
+                db.setOrder(queueId: queueId, dishId: orders[i]["id"] as! Int)
+            }
+            
             self.performSegue(withIdentifier: "showDetail", sender: nil)
         }
         
@@ -134,15 +162,10 @@ class MenuViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        var orders = [[String : Any]]()
-        for index in 0...data.count{
-            if(checkFlag[index]){
-                orders.append(data[index])
-            }
+        if let dest = segue.destination as? OrderViewController {
+            dest.queueId = queueId
         }
-        let dest = segue.destination as? OrderViewController
-        dest?.order = orders
     }
- 
+    
 
 }

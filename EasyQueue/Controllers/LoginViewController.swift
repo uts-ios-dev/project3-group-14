@@ -22,7 +22,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        db.makeDB()
+        // initialise db
+        //db.makeDB()
     }
 
     //check username and password, if match the record in database, jump to next scene

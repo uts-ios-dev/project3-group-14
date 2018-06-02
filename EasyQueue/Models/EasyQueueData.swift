@@ -9,18 +9,6 @@
 // put constants here
 let AppName = "EasyQueue"
 
+// global variable
 var UserId = 0
-
-// put enums here
-//enum Example {
-//    case one
-//    case two
-//}
-
-
-// put structs here
-//struct AnotherExample {
-//    var huh: String
-//    var well: String
-//}
 

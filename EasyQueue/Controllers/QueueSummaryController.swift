@@ -17,6 +17,7 @@ class QueueSummaryController: UIViewController {
     var restId = 0
     var custAmount = 0
     var userId = 0
+    var queueId = 0
     
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var customerAmount: UILabel!
@@ -56,6 +57,7 @@ class QueueSummaryController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         let menuView = segue.destination as! MenuViewController
         menuView.restID = restId
+        menuView.queueId = queueId
     }
     
     

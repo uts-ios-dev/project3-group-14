@@ -16,7 +16,6 @@ class RestaurantViewController: UIViewController {
     let db = EasyQueueDB()
     var restId = 0
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
