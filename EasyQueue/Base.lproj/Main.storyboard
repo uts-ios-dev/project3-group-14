@@ -365,11 +365,10 @@
                                 </state>
                                 <connections>
                                     <action selector="queueButton:" destination="pen-BG-wPg" eventType="touchUpInside" id="50L-w5-5YD"/>
-                                    <segue destination="Oa8-Dd-qfh" kind="show" identifier="QueueSummary" id="9fX-Hi-ewN"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter number of seats: " textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPk-dg-9gM">
-                                <rect key="frame" x="91" y="244" width="233" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter number of seats: " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPk-dg-9gM">
+                                <rect key="frame" x="20" y="244" width="374" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.02331097335" green="0.62772780039999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -382,6 +381,8 @@
                     <connections>
                         <outlet property="customerAmount" destination="FWy-wM-dJC" id="r33-Z9-qmn"/>
                         <outlet property="restNameLabel" destination="ae2-K8-Pl6" id="3Pf-gE-E2R"/>
+                        <outlet property="seatIntfoLabel" destination="hPk-dg-9gM" id="8s9-wx-2fa"/>
+                        <segue destination="Oa8-Dd-qfh" kind="show" identifier="QueueSummary" id="1aN-Hz-kmQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNY-hh-cMR" userLabel="First Responder" sceneMemberID="firstResponder"/>

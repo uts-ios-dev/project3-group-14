@@ -13,6 +13,7 @@ class QueueInController: UIViewController {
     @IBOutlet weak var restNameLabel: UILabel!
     @IBOutlet weak var customerAmount: UITextField!
 
+    @IBOutlet weak var seatIntfoLabel: UILabel!
     
     let db = EasyQueueDB()
     var restaurantName = "Restaurant"
@@ -40,23 +41,29 @@ class QueueInController: UIViewController {
 //    }
     
     @IBAction func queueButton(_ sender: UIButton) {
-        custAmount = Int(customerAmount.text!)!
-        if (custAmount <= 0 || customerAmount.text! == "") {
-            customerAmount.text = "Invalid seats number, please enter number again."
+        if (customerAmount.text != ""){
+             custAmount = Int(customerAmount.text!)!
+            if (custAmount <= 0){
+                seatIntfoLabel.text = "Seat number must be more than 0"
+            }else{
+                let _ = db.setQueue(uid: UserId, rid: restId, num: custAmount, stat: 1)
+                let _ = db.setQueueSystem(rid: restId)
+                performSegue(withIdentifier: "QueueSummary", sender: sender)
+                //        performSegue(withIdentifier: "QueueSummary", sender: sender)
+            }
         }else{
-            let _ = db.setQueue(uid: 1, rid: restId, num: custAmount, stat: 1)
-            let _ = db.setQueueSystem(rid: restId)
-            //        performSegue(withIdentifier: "QueueSummary", sender: sender)
+            seatIntfoLabel.text = "Seat number is required"
         }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         let queueDetail = segue.destination as! QueueSummaryController
         queueDetail.restaurantName = restaurantName
         queueDetail.restId = restId
         queueDetail.custAmount = Int(customerAmount.text!)!
-        queueDetail.userId = 1
+        queueDetail.userId = UserId
     }
+    
  
     
 }
