@@ -40,7 +40,8 @@ class QueueInController: UIViewController {
             if (custAmount <= 0){
                 seatIntfoLabel.text = "Seat number must be more than 0"
             }else{
-                let _ = db.setQueue(uid: UserId, rid: restId, num: custAmount, stat: 1)
+                let number = (db.getQueueSystem(rid: restId)["total"] as! Int) + 1
+                let _ = db.setQueue(uid: UserId, rid: restId, num: number, amount: custAmount, stat: 1)
                 let _ = db.setQueueSystem(rid: restId)
                 performSegue(withIdentifier: "QueueSummary", sender: sender)
             }

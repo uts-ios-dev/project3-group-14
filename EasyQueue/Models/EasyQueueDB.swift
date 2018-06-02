@@ -38,7 +38,7 @@ class EasyQueueDB {
         _ = db.execute(sql: "CREATE TABLE `users` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `username` TEXT NOT NULL, `password` TEXT NOT NULL, `fullname` TEXT NOT NULL );")
         _ = db.execute(sql: "CREATE TABLE `restaurants` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `image` TEXT NOT NULL );")
         _ = db.execute(sql: "CREATE TABLE `dishes` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `restid` INTEGER NOT NULL, `name` TEXT NOT NULL );")
-        _ = db.execute(sql: "CREATE TABLE `queues` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `userid` INTEGER NOT NULL, `restid` INTEGER NOT NULL, `number` INTEGER NOT NULL, `status` INTEGER NOT NULL DEFAULT 0 );")
+        _ = db.execute(sql: "CREATE TABLE `queues` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `userid` INTEGER NOT NULL, `restid` INTEGER NOT NULL, `bookingNumber` INTEGER NOT NULL, `amount` INTEGER NOT NULL, `status` INTEGER NOT NULL DEFAULT 1 );")
         _ = db.execute(sql: "CREATE TABLE `queuesystem` ( `restid` INTEGER NOT NULL, `current` INTEGER NOT NULL, `total` INTEGER NOT NULL );")
         _ = db.execute(sql: "CREATE TABLE `orders` ( `queueid` INTEGER NOT NULL, `dishid` INTEGER NOT NULL, `quantity` INTEGER NOT NULL );")
         db.closeDB()
@@ -63,18 +63,18 @@ class EasyQueueDB {
         _ = db.execute(sql: "INSERT INTO `orders` VALUES (2,4,1);")
         _ = db.execute(sql: "INSERT INTO `orders` VALUES (3,1,1);")
         
-        //insert into queue table (id, userid, restid,bookingNumber, status)
-        _ = db.execute(sql: "INSERT INTO `queues` VALUES (1,1,3,1,0);")
-        _ = db.execute(sql: "INSERT INTO `queues` VALUES (2,1,4,3,0);")
-        _ = db.execute(sql: "INSERT INTO `queues` VALUES (3,1,1,2,2);")
-        _ = db.execute(sql: "INSERT INTO `queues` VALUES (4,1,1,2,2);")
+        //insert into queue table (id, userid, restid, bookingNumber, amount, status)
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES (1,1,3,6,2,1);")
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES (2,1,4,7,2,1);")
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES (3,1,1,2,2,2);")
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES (4,1,1,2,2,2);")
 
         // insert into queuesystem table (restid, current, total)
-        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (1,0,0);")
-        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (2,0,0);")
-        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (3,0,0);")
-        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (4,0,0);")
-        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (5,0,0);")
+        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (1,3,5);")
+        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (2,4,6);")
+        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (3,5,7);")
+        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (4,6,8);")
+        _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (5,7,9);")
 
         // insert dishes (id, restid, name)
         _ = db.execute(sql: "INSERT INTO `dishes` VALUES (1,1,'Honey Chicken');")
@@ -84,6 +84,7 @@ class EasyQueueDB {
         _ = db.execute(sql: "INSERT INTO `dishes` VALUES (5,1,'Chicken Nuggets');")
         _ = db.execute(sql: "INSERT INTO `dishes` VALUES (6,1,'French Fries');")
         _ = db.execute(sql: "INSERT INTO `dishes` VALUES (7,1,'Coke');")
+        _ = db.execute(sql: "INSERT INTO `dishes` VALUES (8,5,'Test');")
         
         db.closeDB()
     }
@@ -117,11 +118,10 @@ class EasyQueueDB {
     // get all bookings from database by using queueStatus as a filter
     func getBookings(status:Int) -> [[String:Any]] {
         let query = """
-        SELECT res.id, res.name as resName,que.number,que.status,dish.name as menuName, res.image
-        FROM ((orders ord
-        inner join queues que on ord.queueid=que.id)
-        inner join restaurants res on que.restid=res.id)
-        inner join dishes dish on ord.dishid=dish.id
+        SELECT res.id, res.name as resName,que.bookingNumber,que.status, res.image, quesys.current
+        FROM queues que
+        left join restaurants res on que.restid=res.id
+        left join queuesystem quesys on res.id=quesys.restid
         WHERE que.status = \(status);
         """
         self.open()
@@ -140,10 +140,10 @@ class EasyQueueDB {
     }
 
 //    set queue
-    func setQueue(uid: Int, rid: Int, num: Int, stat: Int) {
+    func setQueue(uid: Int, rid: Int, num: Int, amount: Int, stat: Int) {
         self.open()
         // insert into queue table
-        _ = db.execute(sql: "INSERT INTO `queues` ('userid', 'restid', 'number', 'status') VALUES ('\(uid)','\(rid)','\(num)','\(stat)');")
+        _ = db.execute(sql: "INSERT INTO `queues` ('userid', 'restid', 'bookingNumber', 'amount', 'status') VALUES ('\(uid)','\(rid)','\(num)', '\(amount)','\(stat)');")
         db.closeDB()
     }
 
