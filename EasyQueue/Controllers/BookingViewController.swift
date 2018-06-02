@@ -9,10 +9,10 @@
 import UIKit
 
 class BookingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    //var menuName = ""
     var selectedSegment = 1
     
     @IBOutlet weak var tableView: UITableView!
+    //get selected segement index, 1 is for currentCells, 2 is for historyCell
     @IBAction func segmentControl(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             selectedSegment = 1
@@ -53,7 +53,7 @@ class BookingViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // configure cells for current Bookings
         if selectedSegment == 1{
-            let currentBookingCell = tableView.dequeueReusableCell(withIdentifier: "currentCell", for: indexPath) as! CurrentBookingTableViewCell
+            let currentBookingCell = tableView.dequeueReusableCell(withIdentifier: "currentCell", for: indexPath) as! BookingTableViewCell
             currentBookingCell.restaurantImage.image = UIImage(named: currentBookings[indexPath.row]["image"] as! String)
             currentBookingCell.bookingNumberLabel.text = "# \(currentBookings[indexPath.row]["number"]!)"
             currentBookingCell.restaurantNameLabel.text = (currentBookings[indexPath.row]["resName"] as! String)
@@ -68,10 +68,11 @@ class BookingViewController: UIViewController, UITableViewDelegate, UITableViewD
             return currentBookingCell
         // configure cells for history bookings
         } else {
-            let historyBookingCell = UITableViewCell(style: .subtitle, reuseIdentifier: "historyCell")
-            historyBookingCell.imageView?.image = UIImage (named: currentBookings[indexPath.row]["image"] as! String)
-            historyBookingCell.textLabel?.text = "# \(historyBookings[indexPath.row]["number"]!)"
-            historyBookingCell.detailTextLabel?.text = (historyBookings[indexPath.row]["resName"] as! String)
+            let historyBookingCell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! BookingTableViewCell
+            historyBookingCell.restaurantImage.image = UIImage (named: currentBookings[indexPath.row]["image"] as! String)
+            historyBookingCell.bookingNumberLabel.text = "# \(historyBookings[indexPath.row]["number"]!)"
+            historyBookingCell.restaurantNameLabel.text = (historyBookings[indexPath.row]["resName"] as! String)
+            historyBookingCell.timeLeftLabel.text = "Completed"
             return historyBookingCell
         }
     }
