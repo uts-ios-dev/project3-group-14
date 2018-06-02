@@ -31,16 +31,10 @@ class QueueInController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        if identifier == "theIdentifier" {
-//            custAmount = Int(customerAmount.text!)!
-//            testDB.setQueue(uid: 1, rid: restaurantID, num: custAmount, stat: 1)
-//
-//        }
-//        return true
-//    }
-    
+//    Queue In button
     @IBAction func queueButton(_ sender: UIButton) {
+        
+// seat number validation
         if (customerAmount.text != ""){
              custAmount = Int(customerAmount.text!)!
             if (custAmount <= 0){
@@ -49,7 +43,6 @@ class QueueInController: UIViewController {
                 let _ = db.setQueue(uid: UserId, rid: restId, num: custAmount, stat: 1)
                 let _ = db.setQueueSystem(rid: restId)
                 performSegue(withIdentifier: "QueueSummary", sender: sender)
-                //        performSegue(withIdentifier: "QueueSummary", sender: sender)
             }
         }else{
             seatIntfoLabel.text = "Seat number is required"
