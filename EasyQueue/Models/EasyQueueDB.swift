@@ -61,13 +61,13 @@ class EasyQueueDB {
         //insert into order table (queueid, dishid, quantity)
         _ = db.execute(sql: "INSERT INTO `orders` VALUES (1,3,1);")
         _ = db.execute(sql: "INSERT INTO `orders` VALUES (2,4,1);")
-        _ = db.execute(sql: "INSERT INTO `orders` VALUES (3,5,1);")
+        _ = db.execute(sql: "INSERT INTO `orders` VALUES (3,1,1);")
         
         //insert into queue table (id, userid, restid,bookingNumber, status)
-        _ = db.execute(sql: "INSERT INTO `queues` VALUES (1,1,3,7,0);")
-        _ = db.execute(sql: "INSERT INTO `queues` VALUES (2,1,4,8,0);")
-        _ = db.execute(sql: "INSERT INTO `queues` VALUES (3,1,5,9,2);")
-        _ = db.execute(sql: "INSERT INTO `queues` VALUES (4,1,1,6,2);")
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES (1,1,3,1,0);")
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES (2,1,4,3,0);")
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES (3,1,1,2,2);")
+        _ = db.execute(sql: "INSERT INTO `queues` VALUES (4,1,1,2,2);")
 
         // insert into queuesystem table (restid, current, total)
         _ = db.execute(sql: "INSERT INTO `queuesystem` VALUES (1,0,0);")
@@ -117,7 +117,7 @@ class EasyQueueDB {
     // get all bookings from database by using queueStatus as a filter
     func getBookings(status:Int) -> [[String:Any]] {
         let query = """
-        SELECT res.name as resName,que.number,que.status,dish.name as menuName, res.image
+        SELECT res.id, res.name as resName,que.number,que.status,dish.name as menuName, res.image
         FROM ((orders ord
         inner join queues que on ord.queueid=que.id)
         inner join restaurants res on que.restid=res.id)
