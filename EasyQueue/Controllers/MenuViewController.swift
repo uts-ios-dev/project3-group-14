@@ -13,7 +13,7 @@ class MenuViewController: UITableViewController {
     let db = EasyQueueDB()
     var data: [[String : Any]] = [[:]]
     var checkFlag  = [Bool]()
-    let restID =  1     // passed from the previous page
+    var restID =  0     // passed from the previous page
     override func viewDidLoad() {
         
         super.viewDidLoad()
