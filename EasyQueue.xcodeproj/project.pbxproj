@@ -207,12 +207,12 @@
 			children = (
 				E1AB4C6C20A44F1F00E7BAFF /* LoginViewController.swift */,
 				E1E18B6A20AC66BF00D2B4CB /* RestaurantListTableViewController.swift */,
-				9848DA4620BBCC68003704B6 /* MenuViewController.swift */,
-				9848DA4520BBCC68003704B6 /* OrderViewController.swift */,
-				337E076320B1902E00863170 /* QueueInController.swift */,
-				33AAE56120B2959B00653998 /* QueueSummaryController.swift */,
 				E1D32B4F20B1A2390071A4B0 /* RestaurantListTableViewCell.swift */,
 				E1D32B5120B1B0BA0071A4B0 /* RestaurantViewController.swift */,
+				337E076320B1902E00863170 /* QueueInController.swift */,
+				33AAE56120B2959B00653998 /* QueueSummaryController.swift */,
+				9848DA4620BBCC68003704B6 /* MenuViewController.swift */,
+				9848DA4520BBCC68003704B6 /* OrderViewController.swift */,
 				7AEB5A3820BAC1330039CFD1 /* BookingViewController.swift */,
 				7A74515220C27DF300ABBB2F /* BookingTableViewCell.swift */,
 			);

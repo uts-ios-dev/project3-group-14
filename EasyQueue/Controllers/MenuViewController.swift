@@ -12,9 +12,11 @@ class MenuViewController: UITableViewController {
 
     let db = EasyQueueDB()
     var data: [[String : Any]] = [[:]]
+    var orderList: [[String : Any]] = [[:]]
     var checkFlag  = [Bool]()
-    var restID =  1     // passed from the previous page
-    var queueId = 5     // passed from the previous page
+    var runCheck = true
+    var restID =  0     // passed from the previous page
+    var queueId = 0     // passed from the previous page
     
     override func viewDidLoad() {
         
@@ -27,6 +29,7 @@ class MenuViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         data = db.getDishesByRestaurantId(id: restID)
+        orderList = db.getOrder(queueId: queueId)
         
         for _ in 0..<data.count
         {
@@ -74,6 +77,15 @@ class MenuViewController: UITableViewController {
             }else{
                 cell.accessoryType = .none
             }
+            
+            if orderList.count > 0 && runCheck == true{
+                for i in 0..<orderList.count {
+                    if (orderList[i]["dishid"] as! Int) == (data[indexPath.row]["id"] as! Int) {
+                        cell.accessoryType = .checkmark
+                    }
+                }
+            }
+            
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "toOrderView", for: indexPath)
@@ -85,6 +97,7 @@ class MenuViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        runCheck = false
         if(indexPath.section == 0){
             checkFlag[indexPath.row] = !checkFlag[indexPath.row]
             tableView.reloadData()
@@ -96,7 +109,9 @@ class MenuViewController: UITableViewController {
                 }
             }
             
+            db.delOrder(queueId: queueId) // delete the orders first
             for i in 0..<orders.count {
+                // add the orders
                 db.setOrder(queueId: queueId, dishId: orders[i]["id"] as! Int)
             }
             

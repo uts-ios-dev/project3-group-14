@@ -313,6 +313,7 @@
                     <navigationItem key="navigationItem" title="My Bookings" id="b48-nx-NGL"/>
                     <connections>
                         <outlet property="tableView" destination="TfX-qO-pmn" id="8Gs-bR-6Fb"/>
+                        <segue destination="Pg1-yD-YDT" kind="show" identifier="BookingToMenu" id="aQM-R1-sAH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYw-ia-qlL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -416,7 +417,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNt-c7-xmt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3806" y="134"/>
+            <point key="canvasLocation" x="2877" y="1745"/>
         </scene>
         <!--Order List-->
         <scene sceneID="kIo-gZ-S6l">
@@ -461,7 +462,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rm6-MZ-GFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="g0G-83-BeZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4650.7246376811599" y="133.69565217391306"/>
+            <point key="canvasLocation" x="3829" y="1745"/>
         </scene>
         <!--Queue In Controller-->
         <scene sceneID="BRb-Jq-omW">
@@ -516,7 +517,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNY-hh-cMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2875.36231884058" y="1106.25"/>
+            <point key="canvasLocation" x="2877" y="866"/>
         </scene>
         <!--Queue Summary Controller-->
         <scene sceneID="54S-ch-GTE">
@@ -622,7 +623,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVL-sp-xQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3828.985507246377" y="1105.4347826086957"/>
+            <point key="canvasLocation" x="3829" y="866"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uGm-ld-F4j">
@@ -648,4 +649,7 @@
         <image name="bookings.png" width="32" height="32"/>
         <image name="button.png" width="960" height="480"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="bdd-MX-6QW"/>
+    </inferredMetricsTieBreakers>
 </document>

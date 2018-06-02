@@ -128,10 +128,16 @@ class EasyQueueDB {
         db.closeDB()
     }
     
+    func delOrder(queueId: Int) {
+        self.open()
+        _ = db.execute(sql: "DELETE FROM orders WHERE queueid = '\(queueId)';")
+        db.closeDB()
+    }
+    
     // get all bookings from database by using queueStatus as a filter
     func getBookings(status:Int) -> [[String:Any]] {
         let query = """
-        SELECT res.id, res.name as resName,que.bookingNumber,que.status, res.image, quesys.current
+        SELECT res.id as resid, res.name as resName, que.id as queueid, que.bookingNumber,que.status, res.image, quesys.current
         FROM queues que
         left join restaurants res on que.restid=res.id
         left join queuesystem quesys on res.id=quesys.restid

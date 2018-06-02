@@ -25,6 +25,8 @@ class BookingViewController: UIViewController, UITableViewDelegate, UITableViewD
     let DB = EasyQueueDB()
     var currentBookings: [[String:Any]] = [[:]]
     var historyBookings: [[String:Any]] = [[:]]
+    var restId = 0
+    var queueId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +35,7 @@ class BookingViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //keys: id,resName,que.bookingNumber,que.status,menuName,res.image
         currentBookings = DB.getBookings(status: 1) // get current (alive) bookings
-        print(currentBookings)
         historyBookings = DB.getBookings(status: 2) // get history (finished) bookings
-        print(historyBookings)
     }
     
     // set costum cell height
@@ -78,14 +78,20 @@ class BookingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let myIndex = indexPath.row
-//        menuName = currentBookings[myIndex]["menuName"] as! String
-//        performSegue(withIdentifier: "BookingToMenu", sender: self)
-//    }
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let controller : ViewController = segue.destination as! ViewController
-//        controller.menuString = menuName
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if selectedSegment == 1 {
+            let myIndex = indexPath.row
+            restId = currentBookings[myIndex]["resid"] as! Int
+            queueId = currentBookings[myIndex]["queueid"] as! Int
+            performSegue(withIdentifier: "BookingToMenu", sender: self)
+        } else {
+            tableView.deselectRow(at: indexPath, animated: false)
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let menuView = segue.destination as! MenuViewController
+        menuView.restID = restId
+        menuView.queueId = queueId
+    }
 }
