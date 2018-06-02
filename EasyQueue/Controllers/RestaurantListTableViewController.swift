@@ -116,6 +116,10 @@ class RestaurantListTableViewController: UITableViewController, UISearchResultsU
         }
     }
     
+    @IBAction func unwindToRestaurantList(segue: UIStoryboardSegue) {
+        
+    }
+    
     
 }
 

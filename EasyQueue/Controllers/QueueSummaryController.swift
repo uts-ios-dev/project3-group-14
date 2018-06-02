@@ -38,6 +38,7 @@ class QueueSummaryController: UIViewController {
         let minute = calendar.component(.minute, from: date)
         let second = calendar.component(.second, from: date)
         let queueTimestamp = "\(day)/\(month)/\(year)-\(hour):\(minute):\(second)"
+        
 //         get Queusystem
         let restQueue = db.getQueueSystem(rid: restId)
         

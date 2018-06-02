@@ -13,6 +13,7 @@ class QueueInController: UIViewController {
     @IBOutlet weak var restNameLabel: UILabel!
     @IBOutlet weak var customerAmount: UITextField!
 
+    @IBOutlet weak var seatIntfoLabel: UILabel!
     
     let db = EasyQueueDB()
     var restaurantName = "Restaurant"
@@ -30,29 +31,32 @@ class QueueInController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        if identifier == "theIdentifier" {
-//            custAmount = Int(customerAmount.text!)!
-//            testDB.setQueue(uid: 1, rid: restaurantID, num: custAmount, stat: 1)
-//
-//        }
-//        return true
-//    }
-    
+//    Queue In button
     @IBAction func queueButton(_ sender: UIButton) {
-        custAmount = Int(customerAmount.text!)!
-        let _ = db.setQueue(uid: 1, rid: restId, num: custAmount, stat: 1)
-        let _ = db.setQueueSystem(rid: restId)
-//        performSegue(withIdentifier: "QueueSummary", sender: sender)
+        
+// seat number validation
+        if (customerAmount.text != ""){
+             custAmount = Int(customerAmount.text!)!
+            if (custAmount <= 0){
+                seatIntfoLabel.text = "Seat number must be more than 0"
+            }else{
+                let _ = db.setQueue(uid: UserId, rid: restId, num: custAmount, stat: 1)
+                let _ = db.setQueueSystem(rid: restId)
+                performSegue(withIdentifier: "QueueSummary", sender: sender)
+            }
+        }else{
+            seatIntfoLabel.text = "Seat number is required"
+        }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         let queueDetail = segue.destination as! QueueSummaryController
         queueDetail.restaurantName = restaurantName
         queueDetail.restId = restId
         queueDetail.custAmount = Int(customerAmount.text!)!
-        queueDetail.userId = 1
+        queueDetail.userId = UserId
     }
+    
  
     
 }

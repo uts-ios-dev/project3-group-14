@@ -9,6 +9,7 @@
 // put constants here
 let AppName = "EasyQueue"
 
+var UserId = 0
 
 // put enums here
 //enum Example {

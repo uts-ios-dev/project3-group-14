@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class LoginViewController: UIViewController {
 
     var user : [[String:Any]] = []
@@ -31,6 +33,7 @@ class LoginViewController: UIViewController {
         
         if user.count == 1 {
             messageLabel.text = ""
+            UserId = user[0]["id"] as! Int
             performSegue(withIdentifier: "LoginToRestaurantList", sender: sender)
         } else {
             messageLabel.text = "Username or password is incorrect, please try again !!"
