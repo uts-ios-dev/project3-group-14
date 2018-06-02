@@ -68,7 +68,7 @@
                                     <constraint firstAttribute="height" constant="100" id="fj0-YW-9fb"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhc-7T-Omx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhc-7T-Omx">
                                 <rect key="frame" x="0.0" y="552.66666666666663" width="414" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -332,12 +332,13 @@
                     <navigationItem key="navigationItem" title="Order List" id="rYt-S3-quV">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="CZ0-XF-e7w">
                             <connections>
-                                <segue destination="Eqz-xe-buu" kind="show" id="h7y-C8-zfl"/>
+                                <segue destination="g0G-83-BeZ" kind="unwind" unwindAction="unwindToRestaurantListWithSegue:" id="oKY-P6-ZJu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rm6-MZ-GFt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="g0G-83-BeZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4650.7246376811599" y="133.69565217391306"/>
         </scene>
@@ -517,7 +518,4 @@
             <point key="canvasLocation" x="1016" y="134"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="EET-Sh-Ajx"/>
-    </inferredMetricsTieBreakers>
 </document>
