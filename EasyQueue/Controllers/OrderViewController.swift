@@ -9,23 +9,15 @@
 import UIKit
 
 class OrderViewController: UITableViewController {
-    var order: [[String : Any]] = []
     
+    let db = EasyQueueDB()
+    var order: [[String : Any]] = [[:]]
+    var queueId = 0 // passed from the previous page
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        if var orders = UserDefaults.standard.array(forKey: "Orders"){
-            for ord in order{
-                orders.append(ord)
-            }
-           
-            UserDefaults.standard.set(orders, forKey: "Orders")
-            order = orders as! [[String : Any]]
-            
-        }else{
-            UserDefaults.standard.set(order, forKey: "Orders")
-        }
+        
+        order = db.getOrder(queueId: queueId)
        
         tableView.tableFooterView = UIView()
         // Uncomment the following line to preserve selection between presentations
@@ -52,10 +44,13 @@ class OrderViewController: UITableViewController {
         return order.count
     }
     
+    /*
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    */
     
+    /*
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
 
@@ -69,17 +64,16 @@ class OrderViewController: UITableViewController {
             self.tableView.endUpdates()
         }
     }
+    */
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderDetail", for: indexPath)
         
-        
-        cell.textLabel?.text = (order[indexPath.row]["name"] as! String)
+        cell.textLabel!.text = (order[indexPath.row]["name"] as! String)
        
         return cell
         
     }
-    
 
     /*
     // Override to support conditional editing of the table view.

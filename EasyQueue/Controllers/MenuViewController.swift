@@ -13,7 +13,9 @@ class MenuViewController: UITableViewController {
     let db = EasyQueueDB()
     var data: [[String : Any]] = [[:]]
     var checkFlag  = [Bool]()
-    var restID =  0     // passed from the previous page
+    var restID =  1     // passed from the previous page
+    var queueId = 5     // passed from the previous page
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -26,7 +28,7 @@ class MenuViewController: UITableViewController {
         
         data = db.getDishesByRestaurantId(id: restID)
         
-        for _ in 0...data.count
+        for _ in 0..<data.count
         {
                 checkFlag.append(false)
         }
@@ -65,8 +67,8 @@ class MenuViewController: UITableViewController {
         if(indexPath.section == 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "menuIdentifier", for: indexPath)
             
+            cell.textLabel!.text = (data[indexPath.row]["name"] as! String)
             
-            cell.textLabel?.text = (data[indexPath.row]["name"] as! String)
             if(checkFlag[indexPath.row]){
                 cell.accessoryType = .checkmark
             }else{
@@ -75,7 +77,7 @@ class MenuViewController: UITableViewController {
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "toOrderView", for: indexPath)
-            cell.textLabel?.text = "Order"
+            cell.textLabel!.text = "Order"
             cell.accessoryType = .disclosureIndicator
             return cell
         }
@@ -87,6 +89,17 @@ class MenuViewController: UITableViewController {
             checkFlag[indexPath.row] = !checkFlag[indexPath.row]
             tableView.reloadData()
         }else{
+            var orders = [[String : Any]]()
+            for index in 0..<data.count{
+                if(checkFlag[index]){
+                    orders.append(data[index])
+                }
+            }
+            
+            for i in 0..<orders.count {
+                db.setOrder(queueId: queueId, dishId: orders[i]["id"] as! Int)
+            }
+            
             self.performSegue(withIdentifier: "showDetail", sender: nil)
         }
         
@@ -134,15 +147,10 @@ class MenuViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        var orders = [[String : Any]]()
-        for index in 0...data.count{
-            if(checkFlag[index]){
-                orders.append(data[index])
-            }
+        if let dest = segue.destination as? OrderViewController {
+            dest.queueId = queueId
         }
-        let dest = segue.destination as? OrderViewController
-        dest?.order = orders
     }
- 
+    
 
 }

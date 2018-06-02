@@ -20,6 +20,7 @@ class QueueInController: UIViewController {
     var restId = 0
     var custAmount = 0
     var userId = 0
+    var number = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,7 @@ class QueueInController: UIViewController {
             if (custAmount <= 0){
                 seatIntfoLabel.text = "Seat number must be more than 0"
             }else{
-                let number = (db.getQueueSystem(rid: restId)["total"] as! Int) + 1
+                number = (db.getQueueSystem(rid: restId)["total"] as! Int) + 1
                 let _ = db.setQueue(uid: UserId, rid: restId, num: number, amount: custAmount, stat: 1)
                 let _ = db.setQueueSystem(rid: restId)
                 performSegue(withIdentifier: "QueueSummary", sender: sender)
@@ -56,6 +57,7 @@ class QueueInController: UIViewController {
         queueDetail.restId = restId
         queueDetail.custAmount = Int(customerAmount.text!)!
         queueDetail.userId = UserId
+        queueDetail.queueId = db.getQueue(uid: UserId, rid: restId, num: number, amount: custAmount, stat: 1)
     }
     
  

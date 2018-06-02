@@ -9,8 +9,8 @@
 import UIKit
 
 class EasyQueueDB {
-    let db = SQLiteBase()
-    let path = Bundle.main.path(forResource: "EasyQueueDB", ofType: "sqlite3")!
+    private let db = SQLiteBase()
+    private let path = Bundle.main.path(forResource: "EasyQueueDB", ofType: "sqlite3")!
     
     // open db
     func open() {
@@ -59,9 +59,9 @@ class EasyQueueDB {
         _ = db.execute(sql: "INSERT INTO `restaurants` VALUES (5,'test','rest2.jpg');")
        
         //insert into order table (queueid, dishid, quantity)
-        _ = db.execute(sql: "INSERT INTO `orders` VALUES (1,3,1);")
-        _ = db.execute(sql: "INSERT INTO `orders` VALUES (2,4,1);")
-        _ = db.execute(sql: "INSERT INTO `orders` VALUES (3,1,1);")
+//        _ = db.execute(sql: "INSERT INTO `orders` VALUES (1,3,1);")
+//        _ = db.execute(sql: "INSERT INTO `orders` VALUES (2,4,1);")
+//        _ = db.execute(sql: "INSERT INTO `orders` VALUES (3,1,1);")
         
         //insert into queue table (id, userid, restid, bookingNumber, amount, status)
         _ = db.execute(sql: "INSERT INTO `queues` VALUES (1,1,3,6,2,1);")
@@ -107,12 +107,25 @@ class EasyQueueDB {
         return data[0]
     }
     
-    func  getDishesByRestaurantId(id : Int) -> [[String : Any]] {
+    func getDishesByRestaurantId(id : Int) -> [[String : Any]] {
         self.open()
         let data = db.query(sql: "SELECT * FROM dishes WHERE restid = '\(id)';")   //
         db.closeDB()
         
         return data
+    }
+    func getOrder(queueId: Int) -> [[String : Any]] {
+        self.open()
+        let data = db.query(sql: "SELECT orders.*, dishes.name as name FROM orders, dishes WHERE orders.dishid = dishes.id AND orders.queueid = '\(queueId)'")
+        db.closeDB()
+        
+        return data
+    }
+    
+    func setOrder(queueId: Int, dishId: Int) {
+        self.open()
+        _ = db.execute(sql: "INSERT INTO `orders` VALUES (\(queueId),\(dishId),1);")
+        db.closeDB()
     }
     
     // get all bookings from database by using queueStatus as a filter
@@ -153,6 +166,14 @@ class EasyQueueDB {
         let data = db.query(sql: "SELECT * FROM queues WHERE userid = '\(userid)';")
         db.closeDB()
         return data[0]
+    }
+    
+    func getQueue(uid: Int, rid: Int, num: Int, amount: Int, stat: Int) -> Int {
+        self.open()
+        let data = db.query(sql: "SELECT id FROM queues WHERE userid = '\(uid)' AND restid = '\(rid)' AND bookingNumber = '\(num)' AND amount = '\(amount)' AND status = '\(stat)'")
+        db.closeDB()
+        
+        return data[0]["id"] as! Int
     }
 
     // get restaurant by name
