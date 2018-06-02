@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CurrentBookingTableViewCell: UITableViewCell {
+class BookingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var restaurantImage: UIImageView!
     @IBOutlet weak var bookingNumberLabel: UILabel!
