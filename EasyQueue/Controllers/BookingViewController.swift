@@ -30,10 +30,18 @@ class BookingViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        //keys: id,resName,que.number,que.status,menuName,res.image
         currentBookings = DB.getBookings(status: 0) // get current (alive) bookings
-        historyBookings = DB.getBookings(status: 2) // get history (finished) bookings        
+        historyBookings = DB.getBookings(status: 2) // get history (finished) bookings
     }
     
+    // set costum cell height
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 65.0
+    }
+    
+    // set number of rows based on selected segment control
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if selectedSegment == 1 {
             return currentBookings.count
@@ -43,12 +51,22 @@ class BookingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // configure cells for current Bookings
         if selectedSegment == 1{
-            let currentBookingCell = UITableViewCell(style: .subtitle, reuseIdentifier: "currentCell")
-            currentBookingCell.imageView?.image = UIImage(named: currentBookings[indexPath.row]["image"] as! String)
-            currentBookingCell.textLabel?.text = "# \(currentBookings[indexPath.row]["number"]!)"
-            currentBookingCell.detailTextLabel?.text = (currentBookings[indexPath.row]["resName"] as! String)
+            let currentBookingCell = tableView.dequeueReusableCell(withIdentifier: "currentCell", for: indexPath) as! CurrentBookingTableViewCell
+            currentBookingCell.restaurantImage.image = UIImage(named: currentBookings[indexPath.row]["image"] as! String)
+            currentBookingCell.bookingNumberLabel.text = "# \(currentBookings[indexPath.row]["number"]!)"
+            currentBookingCell.restaurantNameLabel.text = (currentBookings[indexPath.row]["resName"] as! String)
+            // calculate number of people waiting
+            let rid = currentBookings[indexPath.row]["id"] as! Int
+            var queue = DB.getQueueSystem(rid:rid)
+            let currentQueueNumInRestaurant = queue["current"] as! Int
+            let currentQueueNumber = currentBookings[indexPath.row]["number"] as! Int
+            let numOfPeopleWaiting = currentQueueNumber - currentQueueNumInRestaurant
+            currentBookingCell.numberOfPeopleWaitingLabel.text = "\(numOfPeopleWaiting) people waiting"
+            currentBookingCell.timeLeftLabel.text = "\(numOfPeopleWaiting * 5) mins "
             return currentBookingCell
+        // configure cells for history bookings
         } else {
             let historyBookingCell = UITableViewCell(style: .subtitle, reuseIdentifier: "historyCell")
             historyBookingCell.imageView?.image = UIImage (named: currentBookings[indexPath.row]["image"] as! String)
@@ -69,7 +87,4 @@ class BookingViewController: UIViewController, UITableViewDelegate, UITableViewD
 //        let controller : ViewController = segue.destination as! ViewController
 //        controller.menuString = menuName
 //    }
-    
-    
-    
 }
