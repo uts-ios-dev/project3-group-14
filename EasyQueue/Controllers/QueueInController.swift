@@ -37,14 +37,18 @@ class QueueInController: UIViewController {
         
 // seat number validation
         if (customerAmount.text != ""){
-             custAmount = Int(customerAmount.text!)!
-            if (custAmount <= 0){
-                seatIntfoLabel.text = "Seat number must be more than 0"
-            }else{
-                number = (db.getQueueSystem(rid: restId)["total"] as! Int) + 1
-                let _ = db.setQueue(uid: UserId, rid: restId, num: number, amount: custAmount, stat: 1)
-                let _ = db.setQueueSystem(rid: restId)
-                performSegue(withIdentifier: "QueueSummary", sender: sender)
+            if (Int(customerAmount.text!) == nil) {
+                seatIntfoLabel.text = "Seat number must be a number"
+            } else {
+                custAmount = Int(customerAmount.text!)!
+                if (custAmount <= 0){
+                    seatIntfoLabel.text = "Seat number must be more than 0"
+                }else{
+                    number = (db.getQueueSystem(rid: restId)["total"] as! Int) + 1
+                    let _ = db.setQueue(uid: UserId, rid: restId, num: number, amount: custAmount, stat: 1)
+                    let _ = db.setQueueSystem(rid: restId)
+                    performSegue(withIdentifier: "QueueSummary", sender: sender)
+                }
             }
         }else{
             seatIntfoLabel.text = "Seat number is required"
