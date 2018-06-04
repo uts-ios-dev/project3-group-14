@@ -148,7 +148,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Restaurant List" id="qeU-gN-O0z">
-                        <barButtonItem key="rightBarButtonItem" title="My Bookings" image="bookings.png" id="vgC-3V-xiT">
+                        <barButtonItem key="rightBarButtonItem" image="bookings.png" id="vgC-3V-xiT">
                             <color key="tintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="Eqz-xe-buu" kind="show" id="EET-Sh-Ajx"/>
@@ -658,6 +658,6 @@
         <image name="button.png" width="960" height="480"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bdd-MX-6QW"/>
+        <segue reference="aQM-R1-sAH"/>
     </inferredMetricsTieBreakers>
 </document>
